@@ -1,70 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Varun Gurupurandar | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Varun Gurupurandar – Résumé</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <header>
-    <h1>Varun Gurupurandar</h1>
-    <p>Master’s student in Data Science and Information Engineering</p>
-    <p>📍 Linköping, Sweden | 📧 vargu125@student.liu.se | ☎️ +46 73754 0940</p>
-    <a href="https://www.linkedin.com/in/varun-gurupurandar-44a181215/" target="_blank">LinkedIn</a> |
-    <a href="mailto:gvarun.ml@gmail.com">Email</a>
-  </header>
+  <div class="container">
 
-  <main>
-    <section>
-      <h2>Summary</h2>
-      <p>
-        Master’s student in Data Science and Information Engineering with strong programming skills in Python and
-        hands-on experience applying advanced machine learning techniques including CNNs, transfer learning, and
-        object detection. Experienced in collaborative projects using Git/GitHub, Docker, and FastAPI for scalable ML deployment.
-      </p>
-    </section>
+    <!-- ========== LEFT COLUMN ========== -->
+    <aside class="left">
+      <div class="photo">V</div>
 
-    <section>
-      <h2>Education</h2>
-      <div class="edu">
-        <h3>Linköping University, Sweden</h3>
-        <p><strong>M.Sc. in Data Science and Information Engineering</strong> (2024 – Present)</p>
-        <p>Master coursework: Machine Learning, NLP, Statistics</p>
-        <p>Project: Bias detection and mitigation in NLP models using the Jigsaw Unintended Bias dataset.</p>
+      <div class="name">
+        <h1>Varun<br>Gurupurandar</h1>
+        <span>Data Scientist</span>
       </div>
-      <div class="edu">
-        <h3>Visvesvaraya Technological University (VTU), India</h3>
-        <p><strong>B.E. in Artificial Intelligence and Machine Learning</strong> (2020 – 2024)</p>
-        <ul>
-          <li>Published IEEE papers on IoT-driven data analysis and deep learning for astronomy.</li>
-          <li>Implemented RCNN-based classification with 93.83% accuracy for astronomical object recognition.</li>
-        </ul>
-      </div>
-    </section>
 
-    <section>
-      <h2>Experience</h2>
-      <h3>Egnyte, India — Engineering Intern (Aug 2023 – Oct 2023)</h3>
-      <ul>
-        <li>Developed APIs using FastAPI and deployed models using Docker containers.</li>
-        <li>Worked with PyTorch, TensorFlow, and Keras for ML pipelines.</li>
-        <li>Collaborated using Git/GitHub and CI/CD tools for version control and deployment.</li>
+      <ul class="contact">
+        <li>+46 737 540 940</li>
+        <li>vargu125@student.liu.se</li>
+        <li>Linköping, Sweden</li>
+        <li><a href="https://linkedin.com/in/varun-gurupurandar" target="_blank">LinkedIn</a></li>
       </ul>
-    </section>
 
-    <section>
-      <h2>Technical Skills</h2>
-      <p><strong>Languages:</strong> Python, R, C, Java</p>
-      <p><strong>Tools:</strong> Docker, Postman, Git, GitHub, PowerBI</p>
-      <p><strong>Databases:</strong> SQL, PostgreSQL</p>
-      <p><strong>Operating Systems:</strong> Windows, Linux (VM)</p>
-      <p><strong>Domains:</strong> Machine Learning, Data Science, DevOps, AI, Software Engineering</p>
-    </section>
-  </main>
+      <div class="skills">
+        <h3>Tech Stack</h3>
+        <div class="tags">
+          <span>Python</span><span>PyTorch</span><span>TensorFlow</span>
+          <span>Scikit-learn</span><span>FastAPI</span><span>Docker</span>
+          <span>Git/GitHub</span><span>SQL</span><span>PowerBI</span>
+        </div>
+      </div>
+    </aside>
 
-  <footer>
-    <p>© 2025 Varun Gurupurandar | <a href="mailto:vargu125@student.liu.se">Contact</a></p>
-  </footer>
+    <!-- ========== RIGHT COLUMN ========== -->
+    <main class="right">
+      <section class="section">
+        <h2>Summary</h2>
+        <p>Master’s student in Data Science & Information Engineering with strong Python expertise and hands-on experience in CNNs, transfer learning, and object detection. Published IEEE papers on deep-learning applications in IoT and astronomy. Enjoys deploying containerized ML solutions and values clean, scalable code.</p>
+      </section>
+
+      <section class="section">
+        <h2>Education</h2>
+
+        <div class="edu-item">
+          <strong>M.Sc. Data Science & Information Engineering</strong>
+          <span class="date">09/2024 – present</span><br>
+          Linköping University, Sweden<br>
+          <ul>
+            <li>Coursework: ML, NLP, Statistics</li>
+            <li>Project: fairness mitigation in toxicity-classification models</li>
+          </ul>
+        </div>
+
+        <div class="edu-item">
+          <strong>B.E. Artificial Intelligence & Machine Learning</strong>
+          <span class="date">06/2020 – 07/2024</span><br>
+          VTU, India<br>
+          <ul>
+            <li>IoT-driven temperature analytics & linear-regression (IEEE ICDSNS-2023)</li>
+            <li>RCNN for astronomical image classification – 93.83 % accuracy (IEEE ICDSIS-2024)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Experience</h2>
+        <div>
+          <strong>Machine Learning Engineering Intern</strong>
+          <span class="date">08/2023 – 10/2023</span><br>
+          Egnyte, India
+          <ul>
+            <li>Built high-performance APIs with FastAPI & Docker for scalable ML services</li>
+            <li>Collaborated via Git/GitHub, followed CI/CD best practices</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Publications</h2>
+        <ul>
+          <li>“IoT-Driven Temperature Data Analysis & Linear Regression” – IEEE ICDSNS 2023</li>
+          <li>“Exploring the Cosmos with ML: RCNN for Astronomical Object Classification” – IEEE ICDSIS 2024</li>
+        </ul>
+      </section>
+    </main>
+
+  </div>
 </body>
 </html>
