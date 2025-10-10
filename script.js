@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Hover scale for buttons
-    const buttons = document.querySelectorAll('button, a');
-    buttons.forEach(btn => {
-        btn.addEventListener('mouseover', () => {
-            btn.style.transform = 'scale(1.05)';
+    // Hover scale for buttons and project links
+    const interactiveElements = document.querySelectorAll('button, a');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseover', () => {
+            el.style.transform = 'scale(1.05)';
         });
-        btn.addEventListener('mouseout', () => {
-            btn.style.transform = 'scale(1)';
+        el.addEventListener('mouseout', () => {
+            el.style.transform = 'scale(1)';
         });
     });
 });
