@@ -1,124 +1,45 @@
-/* ---------- COLOURFUL VARIABLES ---------- */
-:root{
-  --grad1:#8338ec;
-  --grad2:#3a86ff;
-  --grad3:#06ffa5;
-  --glass:rgba(255,255,255,.12);
-  --blur:20px;
-  --text:#ffffff;
-  --muted:#d0d0ff;
-  --radius:20px;
-  --space:1.3rem;
-  font-size:17px;
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
-/* ---------- RESET ---------- */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Poppins',sans-serif;
-  min-height:100vh;
-  display:flex;justify-content:center;align-items:center;
-  color:var(--text);
-  overflow:hidden;
-  position:relative;
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-/* ---------- ANIMATED GRADIENT BACKGROUND ---------- */
-.bg-gradient{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(-45deg,var(--grad1),var(--grad2),var(--grad3),var(--grad1));
-  background-size:400% 400%;
-  animation:gradientShift 15s ease infinite;
-  z-index:-1;
-}
-@keyframes gradientShift{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+.animate-bounce {
+    animation: bounce 2s infinite;
 }
 
-/* ---------- LAYOUT ---------- */
-.container{
-  width:95%;max-width:1100px;
-  display:grid;grid-template-columns:280px 1fr;gap:var(--space);
-  position:relative;z-index:2;
-  animation:fadeIn 1s ease-out;
-}
-@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}}
-
-/* ---------- LEFT CARD ---------- */
-.left{
-  background:var(--glass);
-  backdrop-filter:blur(var(--blur));
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:var(--radius);
-  padding:var(--space);
-  display:flex;flex-direction:column;gap:var(--space);
-  box-shadow:0 8px 32px rgba(0,0,0,.25);
-}
-.photo{
-  width:130px;height:130px;margin:0 auto 1rem;
-  border-radius:50%;
-  object-fit:cover;
-  border:3px solid var(--grad3);
-  box-shadow:0 0 20px var(--grad3);
-}
-.name{text-align:center}
-.name h1{font-size:2rem;margin-bottom:.2rem}
-
-.contact li{margin:.5rem 0;font-size:.95rem}
-.contact li::before{
-  content:'▸';color:var(--grad3);margin-right:.4rem;font-weight:700;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
 }
 
-.skills h3{margin-bottom:.6rem}
-.bullets{
-  list-style:disc;
-  padding-left:1.2rem;
-  display:flex;
-  flex-direction:column;
-  gap:.25rem;
-}
-.bullets li{
-  font-size:.9rem;
+.skill-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* ---------- RIGHT CARDS ---------- */
-.right{display:flex;flex-direction:column;gap:var(--space)}
-.card{
-  background:var(--glass);
-  backdrop-filter:blur(var(--blur));
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:var(--radius);
-  padding:var(--space);
-  box-shadow:0 8px 32px rgba(0,0,0,.25);
-  transition:transform .3s,box-shadow .3s;
+.skill-tag:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.4);
 }
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 40px rgba(0,0,0,.35);
-}
-.card h2{
-  margin-bottom:.7rem;
-  font-size:1.5rem;
-  color:var(--grad3);
-  border-left:4px solid var(--grad1);
-  padding-left:.7rem;
-}
-.date{float:right;font-size:.8rem;color:var(--muted)}
-.card ul{margin-top:.4rem;padding-left:1.2rem}
-.card ul li{position:relative;margin:.3rem 0}
-.card ul li::before{
-  content:'';position:absolute;left:-1rem;top:.5rem;
-  width:6px;height:6px;border-radius:50%;background:var(--grad3);
-}
-.edu-item{margin-bottom:1.2rem}
 
-/* ---------- PRINT ---------- */
-@media print{
-  body{background:#fff;color:#000}
-  .container{grid-template-columns:1fr}
-  .bg-gradient,.left{display:none}
-  .card{box-shadow:none;border:1px solid #ccc;background:#fff;}
+section {
+    padding-top: 5rem; /* Offset for fixed nav */
+}
+
+@media (max-width: 768px) {
+    nav ul { flex-direction: column; space-x-0 space-y-4; }
+    h1 { font-size: 3rem !important; }
 }

@@ -1,24 +1,36 @@
-// --- Welcome message ---
-window.addEventListener("load", () => {
-  console.log("Website loaded successfully!");
-  alert("👋 Hi Varun! Welcome to my portfolio website.");
-});
+// Smooth scrolling for nav links
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
 
-// --- Change background color when hovering over your name ---
-const nameTitle = document.querySelector(".name h1");
-nameTitle.addEventListener("mouseover", () => {
-  nameTitle.style.color = "#00bcd4"; // cyan
-});
-nameTitle.addEventListener("mouseout", () => {
-  nameTitle.style.color = "white";
-});
+    // Confetti on skill hover
+    const skills = document.querySelectorAll('.skill-tag[data-confetti="true"]');
+    skills.forEach(skill => {
+        skill.addEventListener('mouseenter', () => {
+            confetti({
+                particleCount: 50,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        });
+    });
 
-// --- Animate the background gradient slowly ---
-let hue = 0;
-function animateBackground() {
-  hue = (hue + 1) % 360;
-  document.querySelector(".bg-gradient").style.background = 
-    `linear-gradient(135deg, hsl(${hue}, 70%, 50%), hsl(${(hue + 90) % 360}, 70%, 50%))`;
-  requestAnimationFrame(animateBackground);
-}
-animateBackground();
+    // Hover scale for buttons
+    const buttons = document.querySelectorAll('button, a');
+    buttons.forEach(btn => {
+        btn.addEventListener('mouseover', () => {
+            btn.style.transform = 'scale(1.05)';
+        });
+        btn.addEventListener('mouseout', () => {
+            btn.style.transform = 'scale(1)';
+        });
+    });
+});
