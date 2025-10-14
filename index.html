@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Varun Gurupurandar - Data Science Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="font-poppins text-white overflow-x-hidden bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
 
   <!-- Navbar -->
   <nav class="bg-white bg-opacity-20 backdrop-blur-md p-4 fixed w-full top-0 shadow-md z-50">
-    <ul class="flex justify-center space-x-8">
+    <ul class="flex justify-center space-x-8 font-semibold">
       <li><a href="#home" class="hover:text-yellow-300 transition">Home</a></li>
       <li><a href="#projects" class="hover:text-yellow-300 transition">Projects</a></li>
       <li><a href="#experience" class="hover:text-yellow-300 transition">Experience</a></li>
       <li><a href="#education" class="hover:text-yellow-300 transition">Education</a></li>
+      <li><a href="#contact" class="hover:text-yellow-300 transition">Contact Me</a></li>
     </ul>
   </nav>
 
   <!-- Home Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center text-center px-8 pt-20">
-    <div>
-      <img src="Varun_Formal_Photo.jpg" alt="Varun Gurupurandar" class="mx-auto rounded-full mb-6 shadow-lg w-48 h-48 object-cover">
-      <h1 class="text-6xl font-bold mb-3">Varun Gurupurandar</h1>
-      <p class="text-lg text-yellow-200 mb-6">ARTIFICIAL INTELLIGENCE | PYTORCH | PYTHON | LLM | DOCKER | SQL | HEROKU</p>
+  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-8 pt-20">
+    <img src="Varun_Formal_Photo.jpg" alt="Varun Gurupurandar" class="mx-auto rounded-full mb-6 shadow-lg w-48 h-48 object-cover">
+    <h1 class="text-6xl font-bold mb-3">Varun Gurupurandar</h1>
+    <p class="text-lg text-yellow-200 mb-6">ARTIFICIAL INTELLIGENCE | PYTORCH | PYTHON | LLM | DOCKER | SQL | HEROKU</p>
+
+    <div class="space-x-4">
       <a href="#projects" class="bg-yellow-400 text-purple-900 px-8 py-3 rounded-full hover:bg-yellow-300 transition">Explore My Work</a>
+      <a href="VARUN GURUPURANDAR(13-09-25).pdf" download class="bg-white text-purple-900 px-8 py-3 rounded-full hover:bg-yellow-200 transition">Download Resume</a>
     </div>
   </section>
 
@@ -39,42 +41,42 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- Project 1 -->
-        <div class="project-card relative rounded-lg overflow-hidden shadow-lg">
-          <img src="llm.jpg" alt="Mitigation Strategy" class="w-full h-56 object-cover transition-transform duration-500">
-          <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 p-4">
+        <div class="bg-white bg-opacity-20 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="llm.jpg" alt="Mitigation Strategy" class="w-full h-56 object-cover">
+          <div class="p-5">
             <h3 class="text-2xl font-semibold mb-2">Mitigation Strategy for NLP Bias</h3>
             <p class="text-sm mb-4">Analyzed gender and political bias in NLP using WEAT and SEAT metrics. Implemented data augmentation to improve fairness in BERT-based toxicity models.</p>
-            <a href="https://github.com/gvarun20/mitigation_stratergy_liu_nlp" target="_blank" class="text-yellow-300 underline hover:text-yellow-100">View on GitHub</a>
+            <a href="https://github.com/gvarun20/mitigation_stratergy_liu_nlp" target="_blank" class="bg-yellow-400 text-purple-900 px-4 py-2 rounded hover:bg-yellow-300 transition">GitHub Link</a>
           </div>
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card relative rounded-lg overflow-hidden shadow-lg">
-          <img src="pandas.jpg" alt="Pandas Tutorial" class="w-full h-56 object-cover transition-transform duration-500">
-          <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 p-4">
+        <div class="bg-white bg-opacity-20 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="pandas.jpg" alt="Pandas Tutorial" class="w-full h-56 object-cover">
+          <div class="p-5">
             <h3 class="text-2xl font-semibold mb-2">Pandas Complete Tutorials Notebook</h3>
             <p class="text-sm mb-4">Comprehensive tutorials on Python’s Pandas library with examples, exercises, and data manipulation techniques for beginners to experts.</p>
-            <a href="https://github.com/gvarun20/Pandas_Complete_tutorials_Notebook" target="_blank" class="text-yellow-300 underline hover:text-yellow-100">View on GitHub</a>
+            <a href="https://github.com/gvarun20/Pandas_Complete_tutorials_Notebook" target="_blank" class="bg-yellow-400 text-purple-900 px-4 py-2 rounded hover:bg-yellow-300 transition">GitHub Link</a>
           </div>
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card relative rounded-lg overflow-hidden shadow-lg">
-          <img src="streamlit.jpg" alt="Diabetic Prediction" class="w-full h-56 object-cover transition-transform duration-500">
-          <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 p-4">
+        <div class="bg-white bg-opacity-20 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="streamlit.jpg" alt="Diabetic Prediction" class="w-full h-56 object-cover">
+          <div class="p-5">
             <h3 class="text-2xl font-semibold mb-2">Diabetic Prediction using Streamlit</h3>
             <p class="text-sm mb-4">Streamlit web app for predicting diabetes using ML models. Demonstrates interactive dashboards and real-time ML deployment.</p>
-            <a href="https://github.com/gvarun20/Diabitic_Prediction_using_Streamlit" target="_blank" class="text-yellow-300 underline hover:text-yellow-100">View on GitHub</a>
+            <a href="https://github.com/gvarun20/Diabitic_Prediction_using_Streamlit" target="_blank" class="bg-yellow-400 text-purple-900 px-4 py-2 rounded hover:bg-yellow-300 transition">GitHub Link</a>
           </div>
         </div>
 
         <!-- Project 4 -->
-        <div class="project-card relative rounded-lg overflow-hidden shadow-lg">
-          <img src="postgresql.jpg" alt="CRUD Flask PostgreSQL" class="w-full h-56 object-cover transition-transform duration-500">
-          <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 p-4">
+        <div class="bg-white bg-opacity-20 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="postgresql.jpg" alt="CRUD Flask PostgreSQL" class="w-full h-56 object-cover">
+          <div class="p-5">
             <h3 class="text-2xl font-semibold mb-2">CRUD using PostgreSQL, Postman, Flask</h3>
             <p class="text-sm mb-4">Flask app implementing full CRUD operations with PostgreSQL backend. Features API design, testing with Postman, and database integration.</p>
-            <a href="https://github.com/gvarun20/CRUD_USING-_POSTGRE_POSTMAN_TABLEPLUS_FLASK" target="_blank" class="text-yellow-300 underline hover:text-yellow-100">View on GitHub</a>
+            <a href="https://github.com/gvarun20/CRUD_USING-_POSTGRE_POSTMAN_TABLEPLUS_FLASK" target="_blank" class="bg-yellow-400 text-purple-900 px-4 py-2 rounded hover:bg-yellow-300 transition">GitHub Link</a>
           </div>
         </div>
 
@@ -115,6 +117,32 @@
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-8 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-center">
+    <h2 class="text-4xl font-bold mb-6">Contact Me</h2>
+    <p class="text-lg mb-2">📍 Linköping, Sweden</p>
+    <p class="text-lg mb-6">📞 +46 737540940</p>
+
+    <div class="max-w-lg mx-auto bg-white bg-opacity-20 p-6 rounded-lg shadow-lg">
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded bg-white text-black placeholder-gray-600 focus:outline-none">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded bg-white text-black placeholder-gray-600 focus:outline-none">
+        <textarea name="message" rows="5" placeholder="Your Message" required class="w-full p-3 rounded bg-white text-black placeholder-gray-600 focus:outline-none"></textarea>
+        <button type="submit" class="bg-yellow-400 text-purple-900 px-6 py-3 rounded-full hover:bg-yellow-300 transition font-semibold">Send Message</button>
+      </form>
+    </div>
+
+    <div class="mt-8 space-x-4">
+      <a href="mailto:vargu125@student.liu.se" class="bg-yellow-400 text-purple-900 px-6 py-3 rounded-full hover:bg-yellow-300 transition">Email Me</a>
+      <a href="https://linkedin.com/in/varun-gurupurandar" target="_blank" class="bg-white text-purple-900 px-6 py-3 rounded-full hover:bg-yellow-200 transition">LinkedIn</a>
+      <a href="https://github.com/gvarun20" target="_blank" class="bg-white text-purple-900 px-6 py-3 rounded-full hover:bg-yellow-200 transition">GitHub</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black bg-opacity-40 text-center py-6">
+    <p>© 2025 Varun Gurupurandar. All Rights Reserved.</p>
+  </footer>
+
 </body>
 </html>

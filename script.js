@@ -1,28 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for nav links
+    // ✅ Smooth Scrolling for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
             const target = document.querySelector(link.getAttribute('href'));
-            target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     });
 
-    // Confetti on skill hover (with cooldown to prevent spam)
+    // 🎉 Confetti on Skill Hover (requires canvas-confetti)
     const confettiCooldown = new Set();
-    document.querySelectorAll('.skill-tag[data-confetti="true"]').forEach(skill => {
-        skill.addEventListener('mouseenter', () => {
-            if (confettiCooldown.has(skill)) return;
-            confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 } });
-            confettiCooldown.add(skill);
-            setTimeout(() => confettiCooldown.delete(skill), 1000);
+    if (typeof confetti !== "undefined") {
+        document.querySelectorAll('.skill-tag[data-confetti="true"]').forEach(skill => {
+            skill.addEventListener('mouseenter', () => {
+                if (confettiCooldown.has(skill)) return;
+                confetti({
+                    particleCount: 40,
+                    spread: 60,
+                    origin: { y: 0.6 },
+                    colors: ['#00c6ff', '#ff00ff', '#ffff00']
+                });
+                confettiCooldown.add(skill);
+                setTimeout(() => confettiCooldown.delete(skill), 1000);
+            });
         });
-    });
+    }
 
-    // Hover scale (smooth + accessible)
+    // ✨ Hover Scaling for Buttons and Links (Accessibility Friendly)
     document.querySelectorAll('button, a').forEach(el => {
         el.style.transition = 'transform 0.2s ease';
-        el.addEventListener('mouseenter', () => (el.style.transform = 'scale(1.05)'));
-        el.addEventListener('mouseleave', () => (el.style.transform = 'scale(1)'));
+        el.addEventListener('mouseenter', () => el.style.transform = 'scale(1.05)');
+        el.addEventListener('mouseleave', () => el.style.transform = 'scale(1)');
     });
 });
