@@ -1,176 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Varun Gurupurandar - Data Science Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Varun Gurupurandar - Data Science Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-poppins text-white overflow-x-hidden">
-    <!-- Navbar -->
-    <nav class="bg-white bg-opacity-20 backdrop-blur-md p-4 fixed w-full top-0 shadow-md z-50">
-        <ul class="flex justify-center space-x-8">
-            <li><a href="#home" class="hover:text-pink-300 transition">Home</a></li>
-            <li><a href="#summary" class="hover:text-pink-300 transition">Summary</a></li>
-            <li><a href="#education" class="hover:text-pink-300 transition">Education</a></li>
-            <li><a href="#projects" class="hover:text-pink-300 transition">Projects</a></li>
-            <li><a href="#experience" class="hover:text-pink-300 transition">Experience</a></li>
-            <li><a href="#skills" class="hover:text-pink-300 transition">Skills</a></li>
-            <li><a href="#contact" class="hover:text-pink-300 transition">Contact</a></li>
+
+<body class="font-poppins text-white overflow-x-hidden bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+
+  <!-- Navbar -->
+  <nav class="bg-white bg-opacity-20 backdrop-blur-md p-4 fixed w-full top-0 shadow-md z-50">
+    <ul class="flex justify-center space-x-8">
+      <li><a href="#home" class="hover:text-yellow-300 transition">Home</a></li>
+      <li><a href="#projects" class="hover:text-yellow-300 transition">Projects</a></li>
+      <li><a href="#experience" class="hover:text-yellow-300 transition">Experience</a></li>
+      <li><a href="#education" class="hover:text-yellow-300 transition">Education</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center text-center px-8 pt-20">
+    <div>
+      <img src="Varun_Formal_Photo.jpg" alt="Varun Gurupurandar" class="mx-auto rounded-full mb-6 shadow-lg w-48 h-48 object-cover">
+      <h1 class="text-6xl font-bold mb-3">Varun Gurupurandar</h1>
+      <p class="text-lg text-yellow-200 mb-6">ARTIFICIAL INTELLIGENCE | PYTORCH | PYTHON | LLM | DOCKER | SQL | HEROKU</p>
+      <a href="#projects" class="bg-yellow-400 text-purple-900 px-8 py-3 rounded-full hover:bg-yellow-300 transition">Explore My Work</a>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 px-8 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Project 1 -->
+        <div class="project-card relative rounded-lg overflow-hidden shadow-lg">
+          <img src="llm.jpg" alt="Mitigation Strategy" class="w-full h-56 object-cover transition-transform duration-500">
+          <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 p-4">
+            <h3 class="text-2xl font-semibold mb-2">Mitigation Strategy for NLP Bias</h3>
+            <p class="text-sm mb-4">Analyzed gender and political bias in NLP using WEAT and SEAT metrics. Implemented data augmentation to improve fairness in BERT-based toxicity models.</p>
+            <a href="https://github.com/gvarun20/mitigation_stratergy_liu_nlp" target="_blank" class="text-yellow-300 underline hover:text-yellow-100">View on GitHub</a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card relative rounded-lg overflow-hidden shadow-lg">
+          <img src="pandas.jpg" alt="Pandas Tutorial" class="w-full h-56 object-cover transition-transform duration-500">
+          <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 p-4">
+            <h3 class="text-2xl font-semibold mb-2">Pandas Complete Tutorials Notebook</h3>
+            <p class="text-sm mb-4">Comprehensive tutorials on Python’s Pandas library with examples, exercises, and data manipulation techniques for beginners to experts.</p>
+            <a href="https://github.com/gvarun20/Pandas_Complete_tutorials_Notebook" target="_blank" class="text-yellow-300 underline hover:text-yellow-100">View on GitHub</a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card relative rounded-lg overflow-hidden shadow-lg">
+          <img src="streamlit.jpg" alt="Diabetic Prediction" class="w-full h-56 object-cover transition-transform duration-500">
+          <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 p-4">
+            <h3 class="text-2xl font-semibold mb-2">Diabetic Prediction using Streamlit</h3>
+            <p class="text-sm mb-4">Streamlit web app for predicting diabetes using ML models. Demonstrates interactive dashboards and real-time ML deployment.</p>
+            <a href="https://github.com/gvarun20/Diabitic_Prediction_using_Streamlit" target="_blank" class="text-yellow-300 underline hover:text-yellow-100">View on GitHub</a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card relative rounded-lg overflow-hidden shadow-lg">
+          <img src="postgresql.jpg" alt="CRUD Flask PostgreSQL" class="w-full h-56 object-cover transition-transform duration-500">
+          <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 p-4">
+            <h3 class="text-2xl font-semibold mb-2">CRUD using PostgreSQL, Postman, Flask</h3>
+            <p class="text-sm mb-4">Flask app implementing full CRUD operations with PostgreSQL backend. Features API design, testing with Postman, and database integration.</p>
+            <a href="https://github.com/gvarun20/CRUD_USING-_POSTGRE_POSTMAN_TABLEPLUS_FLASK" target="_blank" class="text-yellow-300 underline hover:text-yellow-100">View on GitHub</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 px-8 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-8">Experience</h2>
+      <div class="bg-white bg-opacity-20 p-6 rounded-lg">
+        <h3 class="text-2xl font-semibold mb-2">Engineering Internship - EGNYTE, India (08/2023 - 10/2023)</h3>
+        <ul class="list-disc pl-5 text-sm space-y-2">
+          <li>Worked on ML frameworks like PyTorch and TensorFlow focusing on API design.</li>
+          <li>Developed high-performance APIs using FastAPI and containerized with Docker.</li>
+          <li>Collaborated using Git/GitHub with CI/CD pipelines for version control.</li>
         </ul>
-    </nav>
+      </div>
+    </div>
+  </section>
 
-    <!-- Home/Hero Section -->
-    <section id="home" class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center relative">
-        <div class="text-center px-8">
-            <img src="Varun_Formal_Photo.jpg" alt="Varun Gurupurandar" class="mx-auto rounded-full mb-6 shadow-lg w-48 h-48 object-cover">
-            <h1 class="text-6xl font-bold animate-bounce mb-4">Varun Gurupurandar</h1>
-            <p class="text-2xl mb-6">Master's in Data Science | ML Enthusiast | Internship Ready by Feb-2026</p>
-            <a href="#summary" class="bg-yellow-400 text-purple-900 px-8 py-3 rounded-full hover:bg-yellow-300 transition">Explore My Work</a>
-        </div>
-    </section>
+  <!-- Education Section -->
+  <section id="education" class="py-20 px-8 bg-gradient-to-r from-green-400 via-teal-500 to-cyan-500">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-8">Education</h2>
+      <div class="bg-white bg-opacity-20 p-6 rounded-lg">
+        <h3 class="text-2xl font-semibold mb-2">Master's in Data Science and Information Engineering</h3>
+        <p>Linköping University, Sweden (09/2024 - Present)</p>
+        <p>Internship/Thesis ready by February 2026.</p>
+        <p><strong>Coursework:</strong> Machine Learning, NLP, Bayesian Learning</p>
+      </div>
+      <div class="bg-white bg-opacity-20 p-6 rounded-lg mt-6">
+        <h3 class="text-2xl font-semibold mb-2">Bachelor's in Artificial Intelligence and Machine Learning</h3>
+        <p>Visvesvaraya Technological University (2020 – 2024)</p>
+        <p><strong>Project:</strong> IoT-driven temperature monitoring and ML modeling, published in IEEE ICDSNS 2023.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Summary Section -->
-    <section id="summary" class="py-20 px-8 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-8">Summary</h2>
-            <p class="text-lg leading-relaxed">Master’s student in Data Science and Information Engineering with strong programming skills in Python and hands-on experience applying advanced machine learning techniques, including convolutional neural networks, transfer learning, and object detection. Skilled in deploying ML solutions with frameworks such as PyTorch, TensorFlow, and scikit-learn. Experienced in collaborative projects with Git/GitHub and containerized ML applications. Background in IoT and edge computing, with published IEEE research papers in deep learning applications.</p>
-            <div class="text-center mt-8">
-                <a href="VARUN GURUPURANDAR(13-09-25).pdf" download class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-400 transition">Download Resume</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-20 px-8 bg-gradient-to-r from-green-400 via-teal-500 to-cyan-500">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-8">Education</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white bg-opacity-20 p-6 rounded-lg">
-                    <h3 class="text-2xl font-semibold mb-2">Master's in Data Science and Information Engineering</h3>
-                    <p class="text-sm mb-2">Linköping University, Sweden (09/2024 - present)</p>
-                    <p class="text-sm mb-4">3rd Semester | Internship/Thesis ready by February-2026</p>
-                    <p class="mb-2"><strong>Coursework:</strong> Machine Learning, Natural Language Processing, Statistics</p>
-                    <p><strong>Project:</strong> Analyzing and Mitigating Fairness Issues in NLP Models</p>
-                    <ul class="list-disc pl-5 mt-2 text-sm">
-                        <li>Investigated bias detection in NLP using the Jigsaw Unintended Bias in Toxicity Classification dataset.</li>
-                        <li>Applied data augmentation as a mitigation strategy, demonstrating measurable reduction of bias.</li>
-                    </ul>
-                </div>
-                <div class="bg-white bg-opacity-20 p-6 rounded-lg">
-                    <h3 class="text-2xl font-semibold mb-2">Bachelor's in Artificial Intelligence and Machine Learning</h3>
-                    <p class="text-sm mb-2">Visvesvaraya Technological University (VTU), India (06/2020 – 07/2024)</p>
-                    <h4 class="font-semibold mt-4">Project: IoT-Driven Temperature Data Analysis and Linear Regression (03/2022 - 08/2022)</h4>
-                    <ul class="list-disc pl-5 text-sm">
-                        <li>Implemented IoT devices for real-time temperature data collection; conducted EDA with Pandas, NumPy.</li>
-                        <li>Performed statistical modeling with scikit-learn for linear regression; published in IEEE ICDSNS-2023.</li>
-                    </ul>
-                    <h4 class="font-semibold mt-4">Project: Exploring the Cosmos with Machine Learning (11/2023 - 04/2024)</h4>
-                    <ul class="list-disc pl-5 text-sm">
-                        <li>Developed an RCNN for astronomical object classification on 16,697 images, achieving 93.83% accuracy.</li>
-                        <li>Enhanced cosmic knowledge with deep learning; published in IEEE ICDSIS-2024.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-8 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-8">Projects</h2>
-            <div class="space-y-8">
-                <!-- Project 1 -->
-                <div class="bg-white bg-opacity-20 p-6 rounded-lg hover:bg-opacity-30 transition">
-                    <h3 class="text-2xl font-semibold mb-2">Pandas Complete Tutorials Notebook</h3>
-                    <p class="text-sm mb-4">A comprehensive Jupyter Notebook repository offering in-depth tutorials on Pandas, a powerful Python library for data manipulation and analysis. Ideal for beginners and advanced learners, this project showcases practical examples and exercises to master data processing techniques.</p>
-                    <a href="https://github.com/gvarun20/Pandas_Complete_tutorials_Notebook" target="_blank" class="text-blue-300 underline hover:text-blue-100 transition">View on GitHub</a>
-                </div>
-                <!-- Project 2 -->
-                <div class="bg-white bg-opacity-20 p-6 rounded-lg hover:bg-opacity-30 transition">
-                    <h3 class="text-2xl font-semibold mb-2">Diabetic Prediction using Streamlit</h3>
-                    <p class="text-sm mb-4">A Streamlit-based web application designed to predict diabetic conditions using machine learning models. This project demonstrates end-to-end ML deployment, featuring a user-friendly interface and predictive analytics, though further details are pending as no description is provided on GitHub.</p>
-                    <a href="https://github.com/gvarun20/Diabitic_Prediction_using_Streamlit" target="_blank" class="text-blue-300 underline hover:text-blue-100 transition">View on GitHub</a>
-                </div>
-                <!-- Project 3 -->
-                <div class="bg-white bg-opacity-20 p-6 rounded-lg hover:bg-opacity-30 transition">
-                    <h3 class="text-2xl font-semibold mb-2">CRUD Using PostgreSQL, Postman, TablePlus, Flask</h3>
-                    <p class="text-sm mb-4">An open-source Flask application implementing CRUD (Create, Read, Update, Delete) operations with PostgreSQL as the database, tested via Postman and managed with TablePlus. Licensed under MIT, this project highlights backend development skills and API design, released in 2023 by Varun G.</p>
-                    <a href="https://github.com/gvarun20/CRUD_USING-_POSTGRE_POSTMAN_TABLEPLUS_FLASK" target="_blank" class="text-blue-300 underline hover:text-blue-100 transition">View on GitHub</a>
-                </div>
-                <!-- Project 4 -->
-                <div class="bg-white bg-opacity-20 p-6 rounded-lg hover:bg-opacity-30 transition">
-                    <h3 class="text-2xl font-semibold mb-2">TDDE09 Project</h3>
-                    <p class="text-sm mb-4">A project under the TDDE09 course at Linköping University, focusing on advanced topics in data science or machine learning. This repository contains collaborative work, though specific details are yet to be detailed—stay tuned for updates on this academic endeavor.</p>
-                    <a href="https://github.com/gvarun20/TDDE09/tree/main/PROJECT" target="_blank" class="text-blue-300 underline hover:text-blue-100 transition">View on GitHub</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 px-8 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-8">Professional Experience</h2>
-            <div class="bg-white bg-opacity-20 p-6 rounded-lg">
-                <h3 class="text-2xl font-semibold mb-2">Engineering Internship - EGNYTE, India (08/2023 - 10/2023)</h3>
-                <ul class="list-disc pl-5 text-sm space-y-2">
-                    <li>Acquired knowledge of PyTorch, TensorFlow, and Keras with a focus on API design.</li>
-                    <li>Built high-performance APIs with FastAPI and containerized with Docker.</li>
-                    <li>Collaborated using Git/GitHub for version control and CI/CD pipelines.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 px-8 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-8">Technical Skills</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Programming Languages</h3>
-                    <div class="space-y-2">
-                        <span class="skill-tag" data-confetti="true">Python</span>
-                        <span class="skill-tag" data-confetti="true">R</span>
-                        <span class="skill-tag" data-confetti="true">C</span>
-                        <span class="skill-tag" data-confetti="true">Java</span>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Tools & Domains</h3>
-                    <div class="space-y-2">
-                        <span class="skill-tag" data-confetti="true">Docker, Git/GitHub</span>
-                        <span class="skill-tag" data-confetti="true">Postman, PowerBI</span>
-                        <span class="skill-tag" data-confetti="true">SQL</span>
-                        <span class="skill-tag" data-confetti="true">Machine Learning, AI, Data Science, DevOps</span>
-                    </div>
-                </div>
-            </div>
-            <p class="text-center mt-8 text-sm">Environments: Visual Studio, PyCharm, Android Studio, Anaconda, RStudio | OS: Windows, Linux (VM)</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-8 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 min-h-screen flex items-center">
-        <div class="max-w-md mx-auto w-full">
-            <h2 class="text-4xl font-bold text-center mb-8">Get in Touch</h2>
-            <div class="bg-white bg-opacity-20 p-6 rounded-lg">
-                <p class="text-center mb-4">+46 73754 0940 | vargu125@student.liu.se | Linköping, Sweden | <a href="https://www.linkedin.com/in/varun-gurupandhar" class="underline">LinkedIn</a></p>
-                <p class="text-center mb-6">Alternative: +91 9741903898 (gvarun.ml@gmail.com)</p>
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
-                    <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded bg-white bg-opacity-50 text-black" required>
-                    <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded bg-white bg-opacity-50 text-black" required>
-                    <textarea name="message" placeholder="Your Message" class="w-full p-3 rounded bg-white bg-opacity-50 text-black h-32" required></textarea>
-                    <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-400 transition">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

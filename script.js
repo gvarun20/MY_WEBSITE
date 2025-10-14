@@ -1,36 +1,28 @@
-// Smooth scrolling for nav links
 document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
             e.preventDefault();
             const target = document.querySelector(link.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
+            target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 
-    // Confetti on skill hover
-    const skills = document.querySelectorAll('.skill-tag[data-confetti="true"]');
-    skills.forEach(skill => {
+    // Confetti on skill hover (with cooldown to prevent spam)
+    const confettiCooldown = new Set();
+    document.querySelectorAll('.skill-tag[data-confetti="true"]').forEach(skill => {
         skill.addEventListener('mouseenter', () => {
-            confetti({
-                particleCount: 50,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
+            if (confettiCooldown.has(skill)) return;
+            confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 } });
+            confettiCooldown.add(skill);
+            setTimeout(() => confettiCooldown.delete(skill), 1000);
         });
     });
 
-    // Hover scale for buttons and project links
-    const interactiveElements = document.querySelectorAll('button, a');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseover', () => {
-            el.style.transform = 'scale(1.05)';
-        });
-        el.addEventListener('mouseout', () => {
-            el.style.transform = 'scale(1)';
-        });
+    // Hover scale (smooth + accessible)
+    document.querySelectorAll('button, a').forEach(el => {
+        el.style.transition = 'transform 0.2s ease';
+        el.addEventListener('mouseenter', () => (el.style.transform = 'scale(1.05)'));
+        el.addEventListener('mouseleave', () => (el.style.transform = 'scale(1)'));
     });
 });

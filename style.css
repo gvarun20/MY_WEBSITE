@@ -2,44 +2,69 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+    background: #0d0d0d; /* dark base (optional if you use white text) */
+    color: white;
 }
 
+/* Navigation links */
 a {
     color: white;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.2s ease;
 }
 
+a:hover {
+    color: #00c6ff; /* accent color on hover */
+}
+
+/* Bouncing animation */
 .animate-bounce {
-    animation: bounce 2s infinite;
+    animation: bounce 2s infinite ease-in-out;
 }
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-30px); }
-    60% { transform: translateY(-15px); }
+    40% { transform: translateY(-25px); }
+    60% { transform: translateY(-12px); }
 }
 
+/* Skill tags */
 .skill-tag {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
     padding: 0.5rem 1rem;
     margin: 0.25rem;
     border-radius: 9999px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .skill-tag:hover {
     transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.2));
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
+/* Section offset for fixed navbar */
 section {
-    padding-top: 5rem; /* Offset for fixed nav */
+    padding-top: 5rem;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    nav ul { flex-direction: column; space-x-0 space-y-4; }
-    h1 { font-size: 3rem !important; }
+    nav ul {
+        flex-direction: column;
+        gap: 1rem; /* replaces space-x and space-y utility syntax */
+        align-items: center;
+    }
+    h1 {
+        font-size: 2.5rem !important;
+        text-align: center;
+    }
+    .skill-tag {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
