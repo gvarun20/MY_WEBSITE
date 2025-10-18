@@ -33,6 +33,113 @@
     </div>
   </section>
 
+
+<!-- Skills Section (Collapsible Version) -->
+<section id="skills" class="py-20 px-8 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">Skills</h2>
+
+    <div class="space-y-6">
+
+      <!-- Python -->
+      <div class="bg-white bg-opacity-20 rounded-lg shadow-lg">
+        <button onclick="toggleSkill('python')" class="w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-2xl text-yellow-300 focus:outline-none">
+          Python
+          <span id="icon-python" class="text-white text-xl transition-transform duration-300">+</span>
+        </button>
+        <div id="content-python" class="hidden px-6 pb-6 text-sm leading-relaxed">
+          <p>Proficient in <strong>Python</strong> for data analysis, automation, and machine learning. Skilled with:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><strong>Pandas</strong> – Data wrangling, cleaning, feature engineering.</li>
+            <li><strong>NumPy</strong> – High-performance matrix and numerical operations.</li>
+            <li><strong>Scikit-learn</strong> – Classification, regression, and clustering (SVM, Random Forest, K-Means).</li>
+            <li><strong>PyTorch</strong> – Deep learning, transfer learning, and neural network training.</li>
+            <li><strong>Keras</strong> & <strong>TensorFlow</strong> – CNN, RNN, LSTM model development.</li>
+            <li><strong>Matplotlib</strong> & <strong>Seaborn</strong> – Visualization and exploratory data analysis.</li>
+            <li><strong>NLTK</strong> – Text processing, tokenization, sentiment analysis.</li>
+            <li><strong>Streamlit</strong> – Interactive ML web apps and dashboards.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SQL -->
+      <div class="bg-white bg-opacity-20 rounded-lg shadow-lg">
+        <button onclick="toggleSkill('sql')" class="w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-2xl text-yellow-300 focus:outline-none">
+          SQL
+          <span id="icon-sql" class="text-white text-xl transition-transform duration-300">+</span>
+        </button>
+        <div id="content-sql" class="hidden px-6 pb-6 text-sm leading-relaxed">
+          <p>Strong command over relational database systems and data querying techniques:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><strong>RDBMS</strong> – Database design, normalization, and integrity constraints.</li>
+            <li><strong>Joins</strong> – INNER, LEFT, RIGHT, and FULL joins for data merging.</li>
+            <li><strong>Table Creation</strong> – Schema design and defining key relationships.</li>
+            <li><strong>Constraints</strong> – PRIMARY, FOREIGN, UNIQUE, CHECK for data validation.</li>
+            <li><strong>Aggregation</strong> – COUNT, AVG, SUM, GROUP BY, HAVING for analytics.</li>
+            <li><strong>Subqueries</strong> – Writing nested and correlated queries for complex logic.</li>
+            <li><strong>Performance</strong> – Query optimization and indexing strategies.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Docker -->
+      <div class="bg-white bg-opacity-20 rounded-lg shadow-lg">
+        <button onclick="toggleSkill('docker')" class="w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-2xl text-yellow-300 focus:outline-none">
+          Docker
+          <span id="icon-docker" class="text-white text-xl transition-transform duration-300">+</span>
+        </button>
+        <div id="content-docker" class="hidden px-6 pb-6 text-sm leading-relaxed">
+          <p>Experienced in containerization and deployment of ML and web applications:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><strong>Virtualization</strong> – Creating isolated development environments.</li>
+            <li><strong>Docker Images</strong> – Writing Dockerfiles and managing layers.</li>
+            <li><strong>Containers</strong> – Running and orchestrating containerized services.</li>
+            <li><strong>Versioning</strong> – Managing image tags and rollbacks.</li>
+            <li><strong>Docker Compose</strong> – Handling multi-container app orchestration.</li>
+            <li><strong>Integration</strong> – Packaging Flask/ML APIs for CI/CD deployment.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Version Control -->
+      <div class="bg-white bg-opacity-20 rounded-lg shadow-lg">
+        <button onclick="toggleSkill('version')" class="w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-2xl text-yellow-300 focus:outline-none">
+          Version Control
+          <span id="icon-version" class="text-white text-xl transition-transform duration-300">+</span>
+        </button>
+        <div id="content-version" class="hidden px-6 pb-6 text-sm leading-relaxed">
+          <p>Comprehensive experience in distributed version control and collaborative workflows:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><strong>Git</strong> – Branching, merging, stashing, and conflict resolution.</li>
+            <li><strong>GitHub</strong> – Repository management, pull requests, and open-source contributions.</li>
+            <li><strong>GitLab</strong> – CI/CD setup and enterprise workflow automation.</li>
+            <li><strong>Version Management</strong> – Tagging releases and maintaining changelogs.</li>
+            <li><strong>Collaboration</strong> – Code reviews, issues, and workflow standardization.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Collapsible Script -->
+  <script>
+    function toggleSkill(id) {
+      const content = document.getElementById(`content-${id}`);
+      const icon = document.getElementById(`icon-${id}`);
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.textContent = '−';
+      } else {
+        content.classList.add('hidden');
+        icon.textContent = '+';
+      }
+    }
+  </script>
+</section>
+
+
   <!-- Projects Section -->
   <section id="projects" class="py-20 px-8 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">
     <div class="max-w-6xl mx-auto">
