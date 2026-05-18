@@ -1,189 +1,535 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Varun Gurupurandar - Data Science Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Varun Gurupurandar — AI/ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="font-poppins text-white overflow-x-hidden bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+  <!-- Canvas for particle background -->
+  <canvas id="bg-canvas"></canvas>
 
-  <!-- Navbar -->
-  <nav class="bg-white bg-opacity-20 backdrop-blur-md p-4 fixed w-full top-0 shadow-md z-50">
-    <ul class="flex justify-center space-x-8 font-semibold">
-      <li><a href="#home" class="hover:text-yellow-300 transition">Home</a></li>
-      <li><a href="#projects" class="hover:text-yellow-300 transition">Projects</a></li>
-      <li><a href="#experience" class="hover:text-yellow-300 transition">Experience</a></li>
-      <li><a href="#education" class="hover:text-yellow-300 transition">Education</a></li>
-      <li><a href="#contact" class="hover:text-yellow-300 transition">Contact Me</a></li>
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">[</span>VG<span class="logo-bracket">]</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
+    <a href="VARUN GURUPURANDAR(18-02-26).pdf" download class="nav-cta">
+      <span>Resume</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-8 pt-20">
-    <img src="Varun_Formal_Photo.jpg" alt="Varun Gurupurandar" class="mx-auto rounded-full mb-6 shadow-lg w-48 h-48 object-cover">
-    <h1 class="text-6xl font-bold mb-3">Varun Gurupurandar</h1>
-    <p class="text-lg text-yellow-200 mb-6">ARTIFICIAL INTELLIGENCE | PYTORCH | PYTHON | LLM | DOCKER | SQL | HEROKU</p>
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#home" class="mobile-link">Home</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
 
-    <div class="space-x-4">
-      <a href="#projects" class="bg-yellow-400 text-purple-900 px-8 py-3 rounded-full hover:bg-yellow-300 transition">Explore My Work</a>
-      <a href="VARUN GURUPURANDAR(13-09-25).pdf" download class="bg-white text-purple-900 px-8 py-3 rounded-full hover:bg-yellow-200 transition">Download Resume</a>
+  <!-- ===================== HERO ===================== -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-tag reveal-up" style="animation-delay:0.1s">
+        <span class="tag-dot"></span>
+        <span>Available for Internship / Thesis — Feb 2026</span>
+      </div>
+
+      <h1 class="hero-name reveal-up" style="animation-delay:0.2s">
+        Varun<br>
+        <span class="name-accent">Gurupurandar</span>
+      </h1>
+
+      <div class="hero-typing reveal-up" style="animation-delay:0.35s">
+        <span class="typing-prefix">I build </span>
+        <span class="typing-text" id="typingText"></span>
+        <span class="typing-cursor">|</span>
+      </div>
+
+      <p class="hero-description reveal-up" style="animation-delay:0.5s">
+        MSc Data Science & Information Engineering @ Linköping University, Sweden.<br>
+        Passionate about AI systems that solve real-world problems.
+      </p>
+
+      <div class="hero-actions reveal-up" style="animation-delay:0.65s">
+        <a href="#projects" class="btn-primary">
+          <span>View My Work</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+      </div>
+
+      <div class="hero-stats reveal-up" style="animation-delay:0.8s">
+        <div class="stat-item">
+          <span class="stat-num" data-target="4">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Years Coding</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="10">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Projects Built</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="5">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal-right" style="animation-delay:0.3s">
+      <div class="photo-frame">
+        <div class="photo-glow"></div>
+        <img src="Varun_Formal_Photo.jpg" alt="Varun Gurupurandar" class="hero-photo">
+        <div class="photo-ring ring-1"></div>
+        <div class="photo-ring ring-2"></div>
+      </div>
+
+      <!-- Floating tech badges -->
+      <div class="tech-badge badge-pytorch float-1">PyTorch</div>
+      <div class="tech-badge badge-nlp float-2">NLP / LLM</div>
+      <div class="tech-badge badge-docker float-3">Docker</div>
+      <div class="tech-badge badge-sql float-4">PostgreSQL</div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-
-<!-- Skills Section (Collapsible Version) -->
-<section id="skills" class="py-20 px-8 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-4xl font-bold text-center mb-12">Skills</h2>
-
-    <div class="space-y-6">
-
-      <!-- Python -->
-      <div class="bg-white bg-opacity-20 rounded-lg shadow-lg">
-        <button onclick="toggleSkill('python')" class="w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-2xl text-yellow-300 focus:outline-none">
-          Python
-          <span id="icon-python" class="text-white text-xl transition-transform duration-300">+</span>
-        </button>
-        <div id="content-python" class="hidden px-6 pb-6 text-sm leading-relaxed">
-          <p>Proficient in <strong>Python</strong> for data analysis, automation, and machine learning. Skilled with:</p>
-          <ul class="list-disc pl-5 mt-2 space-y-1">
-            <li><strong>Pandas</strong> – Data wrangling, cleaning, feature engineering.</li>
-            <li><strong>NumPy</strong> – High-performance matrix and numerical operations.</li>
-            <li><strong>Scikit-learn</strong> – Classification, regression, and clustering (SVM, Random Forest, K-Means).</li>
-            <li><strong>PyTorch</strong> – Deep learning, transfer learning, and neural network training.</li>
-            <li><strong>Keras</strong> & <strong>TensorFlow</strong> – CNN, RNN, LSTM model development.</li>
-            <li><strong>Matplotlib</strong> & <strong>Seaborn</strong> – Visualization and exploratory data analysis.</li>
-            <li><strong>NLTK</strong> – Text processing, tokenization, sentiment analysis.</li>
-            <li><strong>Streamlit</strong> – Interactive ML web apps and dashboards.</li>
-          </ul>
-        </div>
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="section-label reveal-up">
+        <span class="label-num">01</span>
+        <span class="label-text">About Me</span>
       </div>
 
-      <!-- SQL -->
-      <div class="bg-white bg-opacity-20 rounded-lg shadow-lg">
-        <button onclick="toggleSkill('sql')" class="w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-2xl text-yellow-300 focus:outline-none">
-          SQL
-          <span id="icon-sql" class="text-white text-xl transition-transform duration-300">+</span>
-        </button>
-        <div id="content-sql" class="hidden px-6 pb-6 text-sm leading-relaxed">
-          <p>Strong command over relational database systems and data querying techniques:</p>
-          <ul class="list-disc pl-5 mt-2 space-y-1">
-            <li><strong>RDBMS</strong> – Database design, normalization, and integrity constraints.</li>
-            <li><strong>Joins</strong> – INNER, LEFT, RIGHT, and FULL joins for data merging.</li>
-            <li><strong>Table Creation</strong> – Schema design and defining key relationships.</li>
-            <li><strong>Constraints</strong> – PRIMARY, FOREIGN, UNIQUE, CHECK for data validation.</li>
-            <li><strong>Aggregation</strong> – COUNT, AVG, SUM, GROUP BY, HAVING for analytics.</li>
-            <li><strong>Subqueries</strong> – Writing nested and correlated queries for complex logic.</li>
-            <li><strong>Performance</strong> – Query optimization and indexing strategies.</li>
-          </ul>
+      <div class="about-grid">
+        <div class="about-text reveal-up">
+          <h2 class="section-title">Engineer at<br><span class="accent">the frontier</span><br>of AI.</h2>
+          <p class="about-body">
+            I'm a Data Science & AI engineer currently pursuing my Master's at <strong>Linköping University, Sweden</strong>, 
+            with a background in AI/ML from <strong>VTU, India</strong>.
+          </p>
+          <p class="about-body">
+            My work spans the full ML pipeline — from raw data wrangling with Pandas and SQL, to model training 
+            with PyTorch and TensorFlow, to deploying production APIs with FastAPI and Docker. I thrive at the 
+            intersection of research and engineering.
+          </p>
+          <p class="about-body">
+            Previously interned at <strong>Egnyte</strong>, where I built high-performance ML APIs and containerized 
+            services with CI/CD integration. I'm seeking internship or thesis opportunities starting <strong>Feb 2026</strong>.
+          </p>
+          <div class="about-links">
+            <a href="https://github.com/gvarun20" target="_blank" class="social-chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/varun-gurupurandar-44a181215/" target="_blank" class="social-chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:vargu125@student.liu.se" class="social-chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
+          </div>
+        </div>
+
+        <div class="about-right reveal-up" style="animation-delay:0.2s">
+          <div class="focus-areas">
+            <h3 class="focus-title">Focus Areas</h3>
+            <div class="focus-grid">
+              <div class="focus-card">
+                <div class="focus-icon">🧠</div>
+                <h4>Machine Learning</h4>
+                <p>Deep learning, transfer learning, model optimization with PyTorch & TensorFlow</p>
+              </div>
+              <div class="focus-card">
+                <div class="focus-icon">💬</div>
+                <h4>NLP / LLMs</h4>
+                <p>BERT, bias analysis, WEAT/SEAT metrics, text classification & generation</p>
+              </div>
+              <div class="focus-card">
+                <div class="focus-icon">🗄️</div>
+                <h4>Data Engineering</h4>
+                <p>PostgreSQL, data pipelines, Flask/FastAPI REST APIs, Docker deployment</p>
+              </div>
+              <div class="focus-card">
+                <div class="focus-icon">📊</div>
+                <h4>Data Science</h4>
+                <p>Pandas, NumPy, Scikit-learn, Streamlit dashboards & statistical analysis</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- Docker -->
-      <div class="bg-white bg-opacity-20 rounded-lg shadow-lg">
-        <button onclick="toggleSkill('docker')" class="w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-2xl text-yellow-300 focus:outline-none">
-          Docker
-          <span id="icon-docker" class="text-white text-xl transition-transform duration-300">+</span>
-        </button>
-        <div id="content-docker" class="hidden px-6 pb-6 text-sm leading-relaxed">
-          <p>Experienced in containerization and deployment of ML and web applications:</p>
-          <ul class="list-disc pl-5 mt-2 space-y-1">
-            <li><strong>Virtualization</strong> – Creating isolated development environments.</li>
-            <li><strong>Docker Images</strong> – Writing Dockerfiles and managing layers.</li>
-            <li><strong>Containers</strong> – Running and orchestrating containerized services.</li>
-            <li><strong>Versioning</strong> – Managing image tags and rollbacks.</li>
-            <li><strong>Docker Compose</strong> – Handling multi-container app orchestration.</li>
-            <li><strong>Integration</strong> – Packaging Flask/ML APIs for CI/CD deployment.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Version Control -->
-      <div class="bg-white bg-opacity-20 rounded-lg shadow-lg">
-        <button onclick="toggleSkill('version')" class="w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-2xl text-yellow-300 focus:outline-none">
-          Version Control
-          <span id="icon-version" class="text-white text-xl transition-transform duration-300">+</span>
-        </button>
-        <div id="content-version" class="hidden px-6 pb-6 text-sm leading-relaxed">
-          <p>Comprehensive experience in distributed version control and collaborative workflows:</p>
-          <ul class="list-disc pl-5 mt-2 space-y-1">
-            <li><strong>Git</strong> – Branching, merging, stashing, and conflict resolution.</li>
-            <li><strong>GitHub</strong> – Repository management, pull requests, and open-source contributions.</li>
-            <li><strong>GitLab</strong> – CI/CD setup and enterprise workflow automation.</li>
-            <li><strong>Version Management</strong> – Tagging releases and maintaining changelogs.</li>
-            <li><strong>Collaboration</strong> – Code reviews, issues, and workflow standardization.</li>
-          </ul>
-        </div>
-      </div>
-
     </div>
-  </div>
+  </section>
 
-  <!-- Collapsible Script -->
-  <script>
-    function toggleSkill(id) {
-      const content = document.getElementById(`content-${id}`);
-      const icon = document.getElementById(`icon-${id}`);
+  <!-- ===================== SKILLS ===================== -->
+  <section id="skills" class="skills section">
+    <div class="container">
+      <div class="section-label reveal-up">
+        <span class="label-num">02</span>
+        <span class="label-text">Skills & Technologies</span>
+      </div>
 
-      if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-        icon.textContent = '−';
-      } else {
-        content.classList.add('hidden');
-        icon.textContent = '+';
-      }
-    }
-  </script>
-</section>
+      <h2 class="section-title reveal-up">Technical <span class="accent">Arsenal</span></h2>
 
+      <div class="skills-grid">
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 px-8 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
+        <!-- Python Ecosystem -->
+        <div class="skill-card reveal-up" style="animation-delay:0.05s">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap python-bg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05 1.07.13zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09-.33.22zM21.1 6.11l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.31.33-.25.35-.19.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.04zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08-.33.23z"/></svg>
+            </div>
+            <h3>Python Ecosystem</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Keras</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">NLTK</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Seaborn</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="92"></div>
+          </div>
+        </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Data & SQL -->
+        <div class="skill-card reveal-up" style="animation-delay:0.1s">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap sql-bg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3>SQL & Databases</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">RDBMS Design</span>
+            <span class="tag">Joins & Subqueries</span>
+            <span class="tag">Indexing</span>
+            <span class="tag">Query Optimization</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="85"></div>
+          </div>
+        </div>
+
+        <!-- MLOps & DevOps -->
+        <div class="skill-card reveal-up" style="animation-delay:0.15s">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap docker-bg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.185-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186h-2.12a.186.186 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.92 0h2.12a.186.186 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z"/></svg>
+            </div>
+            <h3>MLOps & DevOps</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Docker</span>
+            <span class="tag">Docker Compose</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Git / GitHub</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Heroku</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="80"></div>
+          </div>
+        </div>
+
+        <!-- AI / NLP -->
+        <div class="skill-card reveal-up" style="animation-delay:0.2s">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap ai-bg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2"/></svg>
+            </div>
+            <h3>AI / NLP / LLM</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">BERT</span>
+            <span class="tag">Transformers</span>
+            <span class="tag">LLM Fine-tuning</span>
+            <span class="tag">WEAT/SEAT</span>
+            <span class="tag">Text Classification</span>
+            <span class="tag">Bias Mitigation</span>
+            <span class="tag">CNN / RNN / LSTM</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="88"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Languages bar -->
+      <div class="lang-section reveal-up">
+        <h3 class="lang-title">Languages & Frameworks at a Glance</h3>
+        <div class="lang-bars">
+          <div class="lang-item">
+            <span class="lang-name">Python</span>
+            <div class="lang-track"><div class="lang-fill" data-width="93"></div></div>
+            <span class="lang-pct">93%</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">SQL</span>
+            <div class="lang-track"><div class="lang-fill" data-width="85"></div></div>
+            <span class="lang-pct">85%</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">PyTorch / TF</span>
+            <div class="lang-track"><div class="lang-fill" data-width="88"></div></div>
+            <span class="lang-pct">88%</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Docker</span>
+            <div class="lang-track"><div class="lang-fill" data-width="80"></div></div>
+            <span class="lang-pct">80%</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">FastAPI / Flask</span>
+            <div class="lang-track"><div class="lang-fill" data-width="82"></div></div>
+            <span class="lang-pct">82%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects" class="projects section">
+    <div class="container">
+      <div class="section-label reveal-up">
+        <span class="label-num">03</span>
+        <span class="label-text">Projects</span>
+      </div>
+
+      <div class="projects-header">
+        <h2 class="section-title reveal-up">Selected <span class="accent">Work</span></h2>
+        <div class="project-filters reveal-up">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="nlp">NLP / AI</button>
+          <button class="filter-btn" data-filter="ml">ML / Data</button>
+          <button class="filter-btn" data-filter="engineering">Engineering</button>
+        </div>
+      </div>
+
+      <div class="projects-grid">
 
         <!-- Project 1 -->
-        <div class="bg-white bg-opacity-20 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
-          <img src="llm.jpg" alt="Mitigation Strategy" class="w-full h-56 object-cover">
-          <div class="p-5">
-            <h3 class="text-2xl font-semibold mb-2">Mitigation Strategy for NLP Bias</h3>
-            <p class="text-sm mb-4">Analyzed gender and political bias in NLP using WEAT and SEAT metrics. Implemented data augmentation to improve fairness in BERT-based toxicity models.</p>
-            <a href="https://github.com/gvarun20/mitigation_stratergy_liu_nlp" target="_blank" class="bg-yellow-400 text-purple-900 px-4 py-2 rounded hover:bg-yellow-300 transition">GitHub Link</a>
+        <div class="project-card reveal-up" data-category="nlp" style="animation-delay:0.05s">
+          <div class="project-img-wrap">
+            <img src="llm.jpg" alt="NLP Bias Mitigation" class="project-img">
+            <div class="project-overlay">
+              <a href="https://github.com/gvarun20/mitigation_stratergy_liu_nlp" target="_blank" class="overlay-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-category nlp-cat">NLP / LLM</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title">Mitigation Strategy for NLP Bias</h3>
+            <p class="project-desc">Analyzed gender and political bias in NLP models using WEAT and SEAT metrics. Implemented data augmentation and fine-tuning to improve fairness in BERT-based toxicity models.</p>
+            <div class="project-tech">
+              <span>BERT</span><span>PyTorch</span><span>NLTK</span><span>Python</span>
+            </div>
           </div>
         </div>
 
         <!-- Project 2 -->
-        <div class="bg-white bg-opacity-20 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
-          <img src="pandas.jpg" alt="Pandas Tutorial" class="w-full h-56 object-cover">
-          <div class="p-5">
-            <h3 class="text-2xl font-semibold mb-2">Pandas Complete Tutorials Notebook</h3>
-            <p class="text-sm mb-4">Comprehensive tutorials on Python’s Pandas library with examples, exercises, and data manipulation techniques for beginners to experts.</p>
-            <a href="https://github.com/gvarun20/Pandas_Complete_tutorials_Notebook" target="_blank" class="bg-yellow-400 text-purple-900 px-4 py-2 rounded hover:bg-yellow-300 transition">GitHub Link</a>
+        <div class="project-card reveal-up" data-category="ml" style="animation-delay:0.1s">
+          <div class="project-img-wrap">
+            <img src="pandas.jpg" alt="Pandas Tutorial" class="project-img">
+            <div class="project-overlay">
+              <a href="https://github.com/gvarun20/Pandas_Complete_tutorials_Notebook" target="_blank" class="overlay-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-category ml-cat">Data Science</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3 class="project-title">Pandas Complete Tutorials Notebook</h3>
+            <p class="project-desc">Comprehensive notebook covering Python's Pandas library with real-world examples, exercises, and advanced data manipulation techniques — from beginner to expert level.</p>
+            <div class="project-tech">
+              <span>Pandas</span><span>NumPy</span><span>Jupyter</span><span>Python</span>
+            </div>
           </div>
         </div>
 
         <!-- Project 3 -->
-        <div class="bg-white bg-opacity-20 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
-          <img src="streamlit.jpg" alt="Diabetic Prediction" class="w-full h-56 object-cover">
-          <div class="p-5">
-            <h3 class="text-2xl font-semibold mb-2">Diabetic Prediction using Streamlit</h3>
-            <p class="text-sm mb-4">Streamlit web app for predicting diabetes using ML models. Demonstrates interactive dashboards and real-time ML deployment.</p>
-            <a href="https://github.com/gvarun20/Diabitic_Prediction_using_Streamlit" target="_blank" class="bg-yellow-400 text-purple-900 px-4 py-2 rounded hover:bg-yellow-300 transition">GitHub Link</a>
+        <div class="project-card reveal-up" data-category="ml" style="animation-delay:0.15s">
+          <div class="project-img-wrap">
+            <img src="streamlit.jpg" alt="Diabetic Prediction" class="project-img">
+            <div class="project-overlay">
+              <a href="https://github.com/gvarun20/Diabitic_Prediction_using_Streamlit" target="_blank" class="overlay-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-category ml-cat">ML Deploy</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3 class="project-title">Diabetic Prediction App</h3>
+            <p class="project-desc">Interactive Streamlit web application for real-time diabetes prediction using trained ML classifiers. Demonstrates end-to-end ML deployment with interactive UI.</p>
+            <div class="project-tech">
+              <span>Streamlit</span><span>Scikit-learn</span><span>Python</span>
+            </div>
           </div>
         </div>
 
         <!-- Project 4 -->
-        <div class="bg-white bg-opacity-20 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
-          <img src="postgresql.jpg" alt="CRUD Flask PostgreSQL" class="w-full h-56 object-cover">
-          <div class="p-5">
-            <h3 class="text-2xl font-semibold mb-2">CRUD using PostgreSQL, Postman, Flask</h3>
-            <p class="text-sm mb-4">Flask app implementing full CRUD operations with PostgreSQL backend. Features API design, testing with Postman, and database integration.</p>
-            <a href="https://github.com/gvarun20/CRUD_USING-_POSTGRE_POSTMAN_TABLEPLUS_FLASK" target="_blank" class="bg-yellow-400 text-purple-900 px-4 py-2 rounded hover:bg-yellow-300 transition">GitHub Link</a>
+        <div class="project-card reveal-up" data-category="engineering" style="animation-delay:0.2s">
+          <div class="project-img-wrap">
+            <img src="postgresql.jpg" alt="CRUD PostgreSQL" class="project-img">
+            <div class="project-overlay">
+              <a href="https://github.com/gvarun20/CRUD_USING-_POSTGRE_POSTMAN_TABLEPLUS_FLASK" target="_blank" class="overlay-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-category eng-cat">Data Engineering</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3 class="project-title">CRUD API with PostgreSQL & Flask</h3>
+            <p class="project-desc">Full-featured REST API implementing CRUD operations with PostgreSQL backend. Includes schema design, Postman testing, Flask integration, and production deployment.</p>
+            <div class="project-tech">
+              <span>Flask</span><span>PostgreSQL</span><span>Postman</span><span>Docker</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="projects-cta reveal-up">
+        <a href="https://github.com/gvarun20" target="_blank" class="btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View All Projects on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE & EDUCATION ===================== -->
+  <section id="experience" class="timeline-section section">
+    <div class="container">
+      <div class="section-label reveal-up">
+        <span class="label-num">04</span>
+        <span class="label-text">Experience & Education</span>
+      </div>
+      <h2 class="section-title reveal-up">My <span class="accent">Journey</span></h2>
+
+      <div class="timeline">
+
+        <!-- Linköping University -->
+        <div class="timeline-item reveal-up" style="animation-delay:0.05s">
+          <div class="timeline-dot edu-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-badge edu-badge">Education</div>
+            <div class="tl-header">
+              <h3>MSc Data Science & Information Engineering</h3>
+              <span class="tl-date">Sep 2024 – Present</span>
+            </div>
+            <p class="tl-org">Linköping University, Sweden 🇸🇪</p>
+            <ul class="tl-points">
+              <li>Coursework: Machine Learning, NLP, Bayesian Learning, Information Theory</li>
+              <li>Internship / Thesis ready from <strong>February 2026</strong></li>
+              <li>Research focus: Bias in language models, data-driven systems</li>
+            </ul>
+            <div class="tl-tags">
+              <span>ML Theory</span><span>NLP</span><span>Bayesian Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Egnyte Internship -->
+        <div class="timeline-item reveal-up" style="animation-delay:0.1s">
+          <div class="timeline-dot exp-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-badge exp-badge">Experience</div>
+            <div class="tl-header">
+              <h3>Engineering Intern</h3>
+              <span class="tl-date">Aug 2023 – Oct 2023</span>
+            </div>
+            <p class="tl-org">Egnyte, India 🇮🇳</p>
+            <ul class="tl-points">
+              <li>Built high-performance ML APIs using <strong>FastAPI</strong>, containerized with Docker</li>
+              <li>Worked with PyTorch and TensorFlow for model integration and API design</li>
+              <li>Maintained CI/CD pipelines using Git/GitHub for version control and deployment</li>
+            </ul>
+            <div class="tl-tags">
+              <span>FastAPI</span><span>Docker</span><span>PyTorch</span><span>CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- VTU -->
+        <div class="timeline-item reveal-up" style="animation-delay:0.15s">
+          <div class="timeline-dot edu-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-badge edu-badge">Education</div>
+            <div class="tl-header">
+              <h3>Bachelor's in AI & Machine Learning</h3>
+              <span class="tl-date">2020 – 2024</span>
+            </div>
+            <p class="tl-org">Visvesvaraya Technological University, India 🇮🇳</p>
+            <ul class="tl-points">
+              <li>Final year project: IoT-driven temperature monitoring with ML modeling</li>
+              <li>Published research at <strong>IEEE ICDSNS 2023</strong> conference</li>
+              <li>Strong foundation in algorithms, data structures, and applied ML</li>
+            </ul>
+            <div class="tl-tags">
+              <span>IEEE Publication</span><span>IoT</span><span>Python</span>
+            </div>
           </div>
         </div>
 
@@ -191,65 +537,135 @@
     </div>
   </section>
 
-  <!-- Experience Section -->
-  <section id="experience" class="py-20 px-8 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-8">Experience</h2>
-      <div class="bg-white bg-opacity-20 p-6 rounded-lg">
-        <h3 class="text-2xl font-semibold mb-2">Engineering Internship - EGNYTE, India (08/2023 - 10/2023)</h3>
-        <ul class="list-disc pl-5 text-sm space-y-2">
-          <li>Worked on ML frameworks like PyTorch and TensorFlow focusing on API design.</li>
-          <li>Developed high-performance APIs using FastAPI and containerized with Docker.</li>
-          <li>Collaborated using Git/GitHub with CI/CD pipelines for version control.</li>
-        </ul>
+  <!-- ===================== CERTIFICATIONS ===================== -->
+  <section id="certifications" class="certs-section section">
+    <div class="container">
+      <div class="section-label reveal-up">
+        <span class="label-num">05</span>
+        <span class="label-text">Certifications</span>
+      </div>
+      <h2 class="section-title reveal-up">Credentials & <span class="accent">Learning</span></h2>
+
+      <div class="certs-grid">
+        <div class="cert-card reveal-up" style="animation-delay:0.05s">
+          <div class="cert-icon">🏆</div>
+          <h4>Machine Learning Specialization</h4>
+          <p>Andrew Ng · Coursera / DeepLearning.AI</p>
+          <span class="cert-tag">ML Foundation</span>
+        </div>
+        <div class="cert-card reveal-up" style="animation-delay:0.1s">
+          <div class="cert-icon">🏆</div>
+          <h4>Deep Learning Specialization</h4>
+          <p>DeepLearning.AI · Coursera</p>
+          <span class="cert-tag">Neural Networks</span>
+        </div>
+        <div class="cert-card reveal-up" style="animation-delay:0.15s">
+          <div class="cert-icon">🏆</div>
+          <h4>Python for Data Science & AI</h4>
+          <p>IBM · Coursera</p>
+          <span class="cert-tag">Data Science</span>
+        </div>
+        <div class="cert-card reveal-up" style="animation-delay:0.2s">
+          <div class="cert-icon">🏆</div>
+          <h4>SQL for Data Science</h4>
+          <p>UC Davis · Coursera</p>
+          <span class="cert-tag">SQL & Data</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Education Section -->
-  <section id="education" class="py-20 px-8 bg-gradient-to-r from-green-400 via-teal-500 to-cyan-500">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-8">Education</h2>
-      <div class="bg-white bg-opacity-20 p-6 rounded-lg">
-        <h3 class="text-2xl font-semibold mb-2">Master's in Data Science and Information Engineering</h3>
-        <p>Linköping University, Sweden (09/2024 - Present)</p>
-        <p>Internship/Thesis ready by February 2026.</p>
-        <p><strong>Coursework:</strong> Machine Learning, NLP, Bayesian Learning</p>
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="contact-section section">
+    <div class="container">
+      <div class="section-label reveal-up">
+        <span class="label-num">06</span>
+        <span class="label-text">Contact</span>
       </div>
-      <div class="bg-white bg-opacity-20 p-6 rounded-lg mt-6">
-        <h3 class="text-2xl font-semibold mb-2">Bachelor's in Artificial Intelligence and Machine Learning</h3>
-        <p>Visvesvaraya Technological University (2020 – 2024)</p>
-        <p><strong>Project:</strong> IoT-driven temperature monitoring and ML modeling, published in IEEE ICDSNS 2023.</p>
+
+      <div class="contact-grid">
+        <div class="contact-left reveal-up">
+          <h2 class="section-title">Let's <span class="accent">Work</span><br>Together</h2>
+          <p class="contact-desc">
+            I'm actively looking for internship and thesis opportunities starting <strong>February 2026</strong> in AI, ML, Data Science, or Data Engineering roles. Open to Sweden, Europe, and remote positions.
+          </p>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Linköping, Sweden</span>
+            </div>
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.16h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.5 6.5l1.27-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+46 737 540 940</span>
+            </div>
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>vargu125@student.liu.se</span>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/gvarun20" target="_blank" class="social-btn" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/varun-gurupurandar-44a181215/" target="_blank" class="social-btn" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="mailto:vargu125@student.liu.se" class="social-btn" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+
+          <a href="VARUN GURUPURANDAR(18-02-26).pdf" download class="btn-primary resume-dl">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Resume
+          </a>
+        </div>
+
+        <div class="contact-right reveal-up" style="animation-delay:0.2s">
+          <form class="contact-form" action="https://formspree.io/f/vargu125" method="POST">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Internship / Collaboration / Other">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about the role or opportunity..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 px-8 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-center">
-    <h2 class="text-4xl font-bold mb-6">Contact Me</h2>
-    <p class="text-lg mb-2">📍 Linköping, Sweden</p>
-    <p class="text-lg mb-6">📞 +46 737540940</p>
-
-    <div class="max-w-lg mx-auto bg-white bg-opacity-20 p-6 rounded-lg shadow-lg">
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
-        <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded bg-white text-black placeholder-gray-600 focus:outline-none">
-        <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded bg-white text-black placeholder-gray-600 focus:outline-none">
-        <textarea name="message" rows="5" placeholder="Your Message" required class="w-full p-3 rounded bg-white text-black placeholder-gray-600 focus:outline-none"></textarea>
-        <button type="submit" class="bg-yellow-400 text-purple-900 px-6 py-3 rounded-full hover:bg-yellow-300 transition font-semibold">Send Message</button>
-      </form>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span class="logo-bracket">[</span>VG<span class="logo-bracket">]</span>
+      </div>
+      <p class="footer-copy">© 2025 Varun Gurupurandar. Built with purpose.</p>
+      <div class="footer-links">
+        <a href="https://github.com/gvarun20" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/varun-gurupurandar-44a181215/" target="_blank">LinkedIn</a>
+        <a href="mailto:vargu125@student.liu.se">Email</a>
+      </div>
     </div>
-
-    <div class="mt-8 space-x-4">
-      <a href="mailto:vargu125@student.liu.se" class="bg-yellow-400 text-purple-900 px-6 py-3 rounded-full hover:bg-yellow-300 transition">Email Me</a>
-      <a href="https://www.linkedin.com/in/varun-gurupurandar-44a181215/" target="_blank" class="bg-white text-purple-900 px-6 py-3 rounded-full hover:bg-yellow-200 transition">LinkedIn</a>
-      <a href="https://github.com/gvarun20" target="_blank" class="bg-white text-purple-900 px-6 py-3 rounded-full hover:bg-yellow-200 transition">GitHub</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-black bg-opacity-40 text-center py-6">
-    <p>© 2025 Varun Gurupurandar. All Rights Reserved.</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
