@@ -344,11 +344,11 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
   position: relative;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
   align-items: center;
-  gap: 48px;
-  padding: calc(var(--nav-h) + 40px) 48px 80px;
-  max-width: 1280px;
+  gap: 56px;
+  padding: calc(var(--nav-h) + 40px) 56px 80px;
+  max-width: 1320px;
   margin: 0 auto;
   z-index: 1;
   overflow: hidden;
@@ -383,15 +383,25 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
 }
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 4.8vw, 4.25rem);
+  font-size: clamp(2.5rem, 4.2vw, 3.85rem);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 24px;
   color: var(--text);
+  word-break: keep-all;
 }
-.name-line {
-  display: block;
+@media (min-width: 900px) {
+  .hero-name {
+    white-space: nowrap;
+    font-size: clamp(2.75rem, 3.6vw, 3.85rem);
+  }
+}
+.name-accent {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 55%, var(--accent3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .hero-tag {
   display: inline-flex;
@@ -417,12 +427,6 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(1.5); }
-}
-.name-accent {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 55%, var(--accent3) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 .hero-typing {
   font-family: var(--font-mono);
@@ -487,8 +491,8 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 420px;
-  max-width: 300px;
+  height: 380px;
+  max-width: 240px;
   width: 100%;
   justify-self: end;
   z-index: 1;
@@ -496,7 +500,7 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
 }
 .photo-frame {
   position: relative;
-  width: 260px; height: 310px;
+  width: 220px; height: 270px;
 }
 .photo-glow {
   position: absolute;
@@ -520,8 +524,8 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
   transform: translate(-50%, -50%);
   animation: ringPulse 4s ease-in-out infinite;
 }
-.ring-1 { width: 290px; height: 290px; animation-delay: 0s; }
-.ring-2 { width: 340px; height: 340px; animation-delay: 1s; }
+.ring-1 { width: 250px; height: 250px; animation-delay: 0s; }
+.ring-2 { width: 290px; height: 290px; animation-delay: 1s; }
 @keyframes ringPulse {
   0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.03); }
@@ -1582,7 +1586,14 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
 }
 
 @media (max-width: 480px) {
-  .hero-name { font-size: 2.25rem; }
+  .hero-name {
+    font-size: 2rem;
+    white-space: normal;
+  }
+  .hero-name .name-accent {
+    display: block;
+    margin-top: 0.1em;
+  }
   .hero-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
   .hero-actions { flex-direction: column; }
   .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
