@@ -238,7 +238,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.section').forEach(sec => {
   revealObserver.observe(sec);
-  sec.querySelectorAll('.skill-card, .project-card, .cert-card, .timeline-item, .focus-card, .case-study').forEach(el => {
+  sec.querySelectorAll('.skill-card, .project-card, .cert-card, .timeline-item, .focus-card, .case-study, .auth-card, .pub-card').forEach(el => {
     el.classList.add('scroll-reveal');
     revealObserver.observe(el);
   });
