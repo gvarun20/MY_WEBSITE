@@ -1508,7 +1508,7 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
 }
 .pubs-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 .pub-card {
@@ -1813,6 +1813,7 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
   .hero-scroll-hint { display: none; }
   .hero-stats { gap: 10px; }
   .auth-grid { grid-template-columns: 1fr; }
+  .pubs-grid { grid-template-columns: 1fr; }
   .focus-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .projects-header { flex-direction: column; }
