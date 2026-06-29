@@ -162,12 +162,12 @@ document.addEventListener('keydown', (e) => {
 
 // ---- Typing Animation ----
 const phrases = [
-  'intelligent NLP systems.',
+  'industrial AI systems.',
+  'Databricks ETL pipelines.',
   'ML-powered APIs.',
-  'data engineering pipelines.',
-  'AI that scales.',
+  'data engineering workflows.',
+  'AI that scales in production.',
   'PyTorch deep learning models.',
-  'impactful data products.',
 ];
 let phraseIdx = 0, charIdx = 0, isDeleting = false;
 const typingEl = document.getElementById('typingText');

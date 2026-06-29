@@ -944,6 +944,7 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
 }
 .edu-dot { background: rgba(0, 245, 160, 0.2); border-color: var(--accent); }
 .exp-dot { background: rgba(0, 217, 245, 0.2); border-color: var(--accent2); }
+.thesis-dot { background: rgba(124, 110, 255, 0.2); border-color: var(--accent3); }
 .timeline-content {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -967,6 +968,7 @@ body:hover .cursor-dot { width: 8px; height: 8px; }
 }
 .edu-badge { background: rgba(0, 245, 160, 0.1); color: var(--accent); }
 .exp-badge { background: rgba(0, 217, 245, 0.1); color: var(--accent2); }
+.thesis-badge { background: rgba(124, 110, 255, 0.12); color: var(--accent3); }
 .tl-header {
   display: flex;
   align-items: flex-start;
