@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Varun Gurupurandar — AI/ML Engineer</title>
-  <meta name="description" content="Varun Gurupurandar — MSc Data Science @ Linköping. Master Thesis @ Toyota Material Handling Europe. AI/ML engineer building industrial data systems with Python, Databricks, Docker & ETL.">
-  <meta property="og:description" content="Data Science & ML Engineer | Master Thesis @ Toyota | Intern @ Epifai | Python · Databricks · Docker · ETL">
+  <meta name="description" content="Varun Gurupurandar — Master Thesis @ Toyota (CAN-bus ETL, PyTorch energy models). RAG & FAISS @ Epifai. CDIO music transcription @ Linköping. Open to AI/ML roles.">
+  <meta property="og:description" content="Industrial ML @ Toyota · Production RAG @ Epifai · Signal Processing CDIO · Python · PyTorch · LangChain · FAISS">
   <meta name="author" content="Varun Gurupurandar">
   <meta property="og:title" content="Varun Gurupurandar — AI/ML Engineer">
   <meta property="og:image" content="https://gvarun20.github.io/MY_WEBSITE/Varun_Formal_Photo.jpg">
@@ -89,8 +89,8 @@
       </p>
 
       <div class="hero-actions reveal-up" style="animation-delay:0.65s">
-        <a href="#projects" class="btn-primary">
-          <span>View My Work</span>
+        <a href="#featured-work" class="btn-primary">
+          <span>See My Work</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a href="#contact" class="btn-ghost">Get In Touch</a>
@@ -152,9 +152,9 @@
             <strong>Toyota Material Handling Europe</strong>, building industrial AI and data-driven systems for logistics and manufacturing.
           </p>
           <p class="about-body">
-            My work spans the full ML pipeline — ETL and data engineering with <strong>Databricks</strong> and SQL, 
-            model training with PyTorch and TensorFlow, and deploying production APIs with FastAPI and Docker. 
-            I also contribute as a <strong>Software Development Intern at Epifai</strong>, a speech-tech startup in Malmö.
+            My work spans industrial ML at <strong>Toyota</strong> (heterogeneous sensor pipelines & energy prediction), 
+            production <strong>RAG systems at Epifai</strong> (LangChain, FAISS, Azure), and full-stack AI from 
+            ETL to deployed APIs with PyTorch, Docker, and FastAPI.
           </p>
           <p class="about-body">
             Previously an <strong>ML Intern at Egnyte</strong>, where I built high-performance ML APIs with CI/CD integration. 
@@ -181,24 +181,24 @@
             <h3 class="focus-title">Focus Areas</h3>
             <div class="focus-grid">
               <div class="focus-card">
-                <div class="focus-icon">🧠</div>
-                <h4>Machine Learning</h4>
-                <p>Deep learning, transfer learning, model optimization with PyTorch & TensorFlow</p>
+                <div class="focus-icon">🏭</div>
+                <h4>Industrial AI</h4>
+                <p>CAN-bus ETL, time-series segmentation, PyTorch DNN/CNN-LSTM, energy & safety modeling for electric forklifts</p>
               </div>
               <div class="focus-card">
-                <div class="focus-icon">💬</div>
-                <h4>NLP / LLMs</h4>
-                <p>BERT, bias analysis, WEAT/SEAT metrics, text classification & generation</p>
+                <div class="focus-icon">🔍</div>
+                <h4>RAG & Search</h4>
+                <p>LangChain pipelines, FAISS vector search, document chunking, Azure Search, and production AI workflows</p>
+              </div>
+              <div class="focus-card">
+                <div class="focus-icon">🎹</div>
+                <h4>Signal Processing</h4>
+                <p>Real-time audio transcription, multi-pitch detection, spectrogram analysis, and polyphonic music systems</p>
               </div>
               <div class="focus-card">
                 <div class="focus-icon">🗄️</div>
                 <h4>Data Engineering</h4>
-                <p>PostgreSQL, Databricks, ETL pipelines, Flask/FastAPI REST APIs, Docker deployment</p>
-              </div>
-              <div class="focus-card">
-                <div class="focus-icon">📊</div>
-                <h4>Data Science</h4>
-                <p>Pandas, NumPy, Scikit-learn, Streamlit dashboards & statistical analysis</p>
+                <p>ETL pipelines, web scraping, PostgreSQL, Databricks, Flask/FastAPI APIs, Docker & CI/CD</p>
               </div>
             </div>
           </div>
@@ -297,13 +297,15 @@
             <h3>AI / NLP / LLM</h3>
           </div>
           <div class="skill-tags">
-            <span class="tag">BERT</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">FAISS</span>
+            <span class="tag">RAG</span>
             <span class="tag">Transformers</span>
+            <span class="tag">BERT</span>
             <span class="tag">LLM Fine-tuning</span>
-            <span class="tag">WEAT/SEAT</span>
-            <span class="tag">Text Classification</span>
+            <span class="tag">Azure Search</span>
+            <span class="tag">OpenAI</span>
             <span class="tag">Bias Mitigation</span>
-            <span class="tag">CNN / RNN / LSTM</span>
           </div>
           <div class="skill-bar-wrap">
             <div class="skill-bar" data-width="88"></div>
@@ -356,7 +358,203 @@
 
       <div class="projects-header">
         <h2 class="section-title reveal-up">Selected <span class="accent">Work</span></h2>
-        <div class="project-filters reveal-up">
+        <p class="projects-lede reveal-up">End-to-end systems built in industry, research, and academia — each with measurable impact a recruiter can grasp in 30 seconds.</p>
+      </div>
+
+      <!-- ========== FLAGSHIP CASE STUDIES ========== -->
+      <div id="featured-work" class="featured-cases">
+
+        <!-- TOYOTA -->
+        <article class="case-study toyota-case scroll-reveal">
+          <div class="case-accent-bar"></div>
+          <div class="case-inner">
+            <div class="case-top">
+              <div class="case-meta-row">
+                <span class="case-type thesis-case-type">Master Thesis · Industry</span>
+                <span class="case-date">Jan 2026 – Present</span>
+              </div>
+              <h3 class="case-title">Electric Forklift Energy Prediction from Heterogeneous CAN-Bus Data</h3>
+              <p class="case-org">Toyota Material Handling Europe · Mjölby, Sweden</p>
+              <p class="case-hook">Built a scalable, end-to-end pipeline that transforms raw multi-source sensor streams into structured ML-ready data — enabling accurate energy consumption forecasting for electric forklifts where no efficient unified method existed before.</p>
+            </div>
+
+            <div class="case-metrics">
+              <div class="metric-box">
+                <span class="metric-value">R² 0.969</span>
+                <span class="metric-label">Multi-Task DNN (physics-informed)</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-value">R² 0.986</span>
+                <span class="metric-label">Hybrid CNN–LSTM energy model</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-value">41 ch.</span>
+                <span class="metric-label">CAN-bus · 1–500 Hz sync</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-value">&gt;0.9998</span>
+                <span class="metric-label">Rand Index · phase detection</span>
+              </div>
+            </div>
+
+            <div class="case-columns">
+              <div class="case-block">
+                <h4 class="case-block-title">The Problem</h4>
+                <p>Electric forklifts produce large, heterogeneous time-series data — current, voltage, speed — at different sampling rates from multiple acquisition systems. Without consistent alignment and phase identification, energy modeling fails at scale.</p>
+              </div>
+              <div class="case-block">
+                <h4 class="case-block-title">My Contribution</h4>
+                <ul class="case-list">
+                  <li>Built an end-to-end <strong>Python ETL pipeline</strong> to ingest, clean, and synchronise multi-source CAN-bus sensor data (1 Hz–500 Hz, 41 channels)</li>
+                  <li>Applied <strong>Binary Segmentation (BinSeg, L²)</strong> to detect 7 operational motion phases — validated at silhouette score <strong>0.675</strong> and Rand Index <strong>&gt;0.9998</strong></li>
+                  <li>Computed phase-level KPIs (energy, power, distance, speed) and trained a <strong>PyTorch Multi-Task DNN</strong> with physics-informed loss — R² = <strong>0.969 / 0.920 / 0.839</strong> across acceleration, deceleration, and constant-speed phases</li>
+                  <li>Developed a <strong>Hybrid CNN–LSTM</strong> for post-run energy estimation (R² = <strong>0.986 / 0.983 / 0.912</strong>, 78 test trips) and a <strong>GMM safety classifier</strong> (BIC/AIC validated) to flag unsafe driving segments</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="case-outcome">
+              <span class="outcome-label">Outcome</span>
+              <p>Demonstrated that consistent preprocessing of heterogeneous sensor streams is critical for accurate energy modeling — providing a validated framework for future predictive systems in material-handling applications.</p>
+            </div>
+
+            <div class="case-tech">
+              <span>Python</span><span>PyTorch</span><span>ETL</span><span>BinSeg</span><span>CNN–LSTM</span><span>GMM</span><span>Time-Series</span><span>CAN-bus</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPIFAI -->
+        <article class="case-study epifai-case scroll-reveal">
+          <div class="case-accent-bar"></div>
+          <div class="case-inner">
+            <div class="case-top">
+              <div class="case-meta-row">
+                <span class="case-type exp-case-type">Software Dev Intern · Production AI</span>
+                <span class="case-date">Dec 2025 – Present</span>
+              </div>
+              <h3 class="case-title">RAG Pipelines, Vector Search & Cloud AI Systems</h3>
+              <p class="case-org">Epifai · Malmö, Sweden</p>
+              <p class="case-hook">Contributed to the design and development of AI-powered data and search systems — from raw web data ingestion to semantic retrieval and context-aware question answering in production.</p>
+            </div>
+
+            <div class="case-metrics">
+              <div class="metric-box">
+                <span class="metric-value">RAG</span>
+                <span class="metric-label">LangChain end-to-end pipelines</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-value">FAISS</span>
+                <span class="metric-label">Vector search at scale</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-value">Azure</span>
+                <span class="metric-label">Cloud-integrated AI workflows</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-value">Full Stack</span>
+                <span class="metric-label">ETL → embed → retrieve → answer</span>
+              </div>
+            </div>
+
+            <div class="case-columns">
+              <div class="case-block">
+                <h4 class="case-block-title">The Problem</h4>
+                <p>AI products need reliable access to large, unstructured document collections. Manual data collection and flat keyword search cannot support modern semantic Q&A or knowledge-intensive applications at scale.</p>
+              </div>
+              <div class="case-block">
+                <h4 class="case-block-title">My Contribution</h4>
+                <ul class="case-list">
+                  <li>Built <strong>end-to-end data pipelines</strong> for collecting, cleaning, transforming, and structuring large-scale unstructured datasets — including automated <strong>web scraping & ingestion</strong> in Python</li>
+                  <li>Engineered document workflows: content extraction, metadata enrichment, text chunking, and transformation into scalable knowledge repositories</li>
+                  <li>Implemented <strong>RAG pipelines with LangChain</strong> — document indexing, semantic retrieval, and context-aware Q&A</li>
+                  <li>Designed <strong>FAISS vector search</strong> with transformer embeddings: indexing strategies, similarity search, and retrieval optimization for relevance</li>
+                  <li>Collaborated on <strong>Azure Search & OpenAI</strong> integrations with Docker, Git, and CI/CD for scalable deployment</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="case-outcome">
+              <span class="outcome-label">Outcome</span>
+              <p>Gained hands-on experience across the complete AI lifecycle — data acquisition, ETL, feature engineering, vector databases, information retrieval, ML integration, and production-oriented application development.</p>
+            </div>
+
+            <div class="case-tech">
+              <span>Python</span><span>LangChain</span><span>FAISS</span><span>RAG</span><span>Azure Search</span><span>OpenAI</span><span>Docker</span><span>CI/CD</span><span>Web Scraping</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CDIO -->
+        <article class="case-study cdio-case scroll-reveal">
+          <div class="case-accent-bar"></div>
+          <div class="case-inner">
+            <div class="case-top">
+              <div class="case-meta-row">
+                <span class="case-type cdio-case-type">CDIO Project · Signal Processing</span>
+                <span class="case-date">Aug 2025 – Jan 2026</span>
+              </div>
+              <h3 class="case-title">Advanced Polyphonic Music Transcription System</h3>
+              <p class="case-org">Linköping University · TSKS23 Project Course (CDIO)</p>
+              <p class="case-hook">A full-stack signal processing system that lets any user record piano audio live or upload files — and get structured musical events with waveform & spectrogram visualization, no signal processing background required.</p>
+            </div>
+
+            <div class="case-metrics">
+              <div class="metric-box">
+                <span class="metric-value">3 notes</span>
+                <span class="metric-label">Simultaneous multi-pitch detection</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-value">Real-time</span>
+                <span class="metric-label">Live mic + offline file input</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-value">ms</span>
+                <span class="metric-label">Onset/offset timing accuracy</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-value">5+ formats</span>
+                <span class="metric-label">WAV · MP3 · FLAC · M4A · AAC</span>
+              </div>
+            </div>
+
+            <div class="case-columns">
+              <div class="case-block">
+                <h4 class="case-block-title">What It Does</h4>
+                <p>Users record piano in real time or upload audio/MIDI files. The system transcribes into structured note events with timing, visualizes waveforms and spectrograms interactively, stores session history in SQLite, and exports results for external use.</p>
+              </div>
+              <div class="case-block">
+                <h4 class="case-block-title">Key Capabilities Built</h4>
+                <ul class="case-list">
+                  <li><strong>Multi-pitch detection</strong> — simultaneously detect up to 3 notes with polyphonic chord support</li>
+                  <li><strong>Real-time pipeline</strong> — live microphone recording with immediate transcription and adjustable sensitivity</li>
+                  <li><strong>Visualization suite</strong> — waveform display, spectrogram analysis, and multi-track frequency components</li>
+                  <li><strong>Data layer</strong> — SQLite session management, transcription history, and text export functionality</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="case-outcome">
+              <span class="outcome-label">Deliverable</span>
+              <p>Complete user manual and production-ready system — designed so a new user can set up and run without developer assistance.</p>
+              <a href="https://github.com/gvarun20/CDIO_3rd_semester-project/tree/main" target="_blank" rel="noopener noreferrer" class="case-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+
+            <div class="case-tech">
+              <span>Python</span><span>Signal Processing</span><span>Multi-Pitch Detection</span><span>SQLite</span><span>Spectrogram</span><span>Real-time Audio</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ========== ADDITIONAL PROJECTS ========== -->
+      <div class="more-projects-header reveal-up">
+        <h3 class="more-projects-title">Additional Projects</h3>
+        <div class="project-filters">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="nlp">NLP / AI</button>
           <button class="filter-btn" data-filter="ml">ML / Data</button>
@@ -490,18 +688,18 @@
           <div class="timeline-content">
             <div class="tl-badge thesis-badge">Master Thesis</div>
             <div class="tl-header">
-              <h3>Master Thesis — Industrial AI & Data Science</h3>
+              <h3>Master Thesis — Energy Prediction for Electric Forklifts</h3>
               <span class="tl-date">Jan 2026 – Present</span>
             </div>
             <p class="tl-org">Toyota Material Handling Europe, Mjölby 🇸🇪</p>
+            <p class="tl-summary">Scalable pipeline: raw CAN-bus sensor data → structured ML features → energy & safety models. <a href="#featured-work" class="tl-see-more">Full case study ↓</a></p>
             <ul class="tl-points">
-              <li>Building industrial AI solutions and data-driven systems for logistics and material handling at scale</li>
-              <li>Designing ETL pipelines and analytics workflows using <strong>Python</strong>, <strong>Databricks</strong>, and SQL</li>
-              <li>Applying machine learning to real manufacturing and operational data in an industrial R&D environment</li>
-              <li>Working with <strong>Docker</strong> and production-grade tooling alongside cross-functional engineering teams</li>
+              <li>End-to-end Python ETL for 41-channel CAN-bus data (1–500 Hz); BinSeg phase detection — Rand Index <strong>&gt;0.9998</strong></li>
+              <li>PyTorch Multi-Task DNN (physics-informed) — R² up to <strong>0.969</strong>; Hybrid CNN–LSTM energy model — R² up to <strong>0.986</strong></li>
+              <li>GMM safety classifier (BIC/AIC validated) for automatic flagging of unsafe driving segments</li>
             </ul>
             <div class="tl-tags">
-              <span>Databricks</span><span>Python</span><span>ETL</span><span>Docker</span><span>Industrial AI</span>
+              <span>Python</span><span>PyTorch</span><span>ETL</span><span>CNN–LSTM</span><span>CAN-bus</span>
             </div>
           </div>
         </div>
@@ -512,17 +710,19 @@
           <div class="timeline-content">
             <div class="tl-badge exp-badge">Experience</div>
             <div class="tl-header">
-              <h3>Software Development Intern</h3>
+              <h3>Software Development Intern — RAG & Vector Search</h3>
               <span class="tl-date">Dec 2025 – Present</span>
             </div>
             <p class="tl-org">Epifai, Malmö 🇸🇪</p>
+            <p class="tl-summary">Production AI data systems: ingestion → embedding → semantic search → Q&A. <a href="#featured-work" class="tl-see-more">Full case study ↓</a></p>
             <ul class="tl-points">
-              <li>Contributing to software development at a speech-tech startup focused on AI-powered voice solutions</li>
-              <li>Building and integrating engineering components across the product stack in a fast-paced environment</li>
-              <li>Collaborating with the technical team on development, testing, and deployment of software features</li>
+              <li>Built end-to-end data pipelines & automated web scraping for large-scale unstructured datasets</li>
+              <li>Implemented <strong>RAG pipelines with LangChain</strong> — chunking, indexing, semantic retrieval, context-aware Q&A</li>
+              <li>Designed <strong>FAISS vector search</strong> with transformer embeddings; optimized retrieval relevance at scale</li>
+              <li>Cloud integrations with <strong>Azure Search & OpenAI</strong>; Docker, Git, CI/CD for deployment</li>
             </ul>
             <div class="tl-tags">
-              <span>Software Dev</span><span>Python</span><span>AI / Speech</span><span>Startup</span>
+              <span>LangChain</span><span>FAISS</span><span>RAG</span><span>Azure</span><span>Python</span>
             </div>
           </div>
         </div>
