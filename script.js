@@ -307,6 +307,102 @@ const navObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(sec => navObserver.observe(sec));
 
+// ---- Live Lab (live-projects.json) ----
+const liveProjectsGrid = document.getElementById('liveProjectsGrid');
+const liveFilterBtns = document.querySelectorAll('.live-filter-btn');
+let liveProjectsData = [];
+let activeLiveFilter = 'all';
+
+const LIVE_STATUS_LABELS = {
+  live: 'Live',
+  building: 'Building',
+  upcoming: 'Upcoming'
+};
+
+function renderLiveProjects(projects, filter = 'all') {
+  if (!liveProjectsGrid) return;
+
+  const filtered = filter === 'all'
+    ? projects
+    : projects.filter(p => p.status === filter);
+
+  if (!filtered.length) {
+    liveProjectsGrid.innerHTML = '<p class="live-projects-empty">No projects in this category yet — add one in <code>live-projects.json</code>.</p>';
+    return;
+  }
+
+  liveProjectsGrid.innerHTML = filtered.map(project => {
+    const status = project.status || 'upcoming';
+    const statusLabel = LIVE_STATUS_LABELS[status] || status;
+    const meta = project.updated
+      ? `Updated ${project.updated}`
+      : project.expected
+        ? project.expected
+        : '';
+
+    const actions = status === 'live' && project.liveUrl
+      ? `<a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="live-card-btn primary">Open Dashboard</a>`
+      : status === 'building' && project.liveUrl
+        ? `<a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="live-card-btn">Preview</a>`
+        : `<span class="live-card-btn disabled">Coming soon</span>`;
+
+    const githubLink = project.githubUrl
+      ? `<a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="live-card-btn ghost">GitHub</a>`
+      : '';
+
+    const stack = (project.stack || [])
+      .map(tag => `<span>${tag}</span>`)
+      .join('');
+
+    return `
+      <article class="live-project-card scroll-reveal" data-status="${status}">
+        <div class="live-card-top">
+          <span class="live-status live-status-${status}">
+            ${status === 'live' ? '<span class="live-pulse"></span>' : ''}
+            ${statusLabel}
+          </span>
+          ${meta ? `<span class="live-card-meta">${meta}</span>` : ''}
+        </div>
+        <h3 class="live-card-title">${project.title}</h3>
+        <p class="live-card-desc">${project.description}</p>
+        ${stack ? `<div class="live-card-stack">${stack}</div>` : ''}
+        <div class="live-card-actions">
+          ${actions}
+          ${githubLink}
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  liveProjectsGrid.querySelectorAll('.live-project-card').forEach(card => {
+    revealObserver.observe(card);
+  });
+}
+
+async function loadLiveProjects() {
+  if (!liveProjectsGrid) return;
+
+  try {
+    const response = await fetch('live-projects.json');
+    if (!response.ok) throw new Error('Failed to load');
+    liveProjectsData = await response.json();
+    renderLiveProjects(liveProjectsData, activeLiveFilter);
+  } catch {
+    liveProjectsGrid.innerHTML = '<p class="live-projects-empty">Could not load live projects. Check that <code>live-projects.json</code> exists in the repo.</p>';
+  }
+}
+
+liveFilterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    liveFilterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeLiveFilter = btn.dataset.liveFilter;
+    renderLiveProjects(liveProjectsData, activeLiveFilter);
+  });
+});
+
+loadLiveProjects();
+
 // ---- Contact form (FormSubmit) ----
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');

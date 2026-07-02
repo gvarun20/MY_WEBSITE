@@ -1,0 +1,11 @@
+[
+  {
+    "title": "OpenFlights Data Warehouse",
+    "description": "End-to-end data pipeline with a live analytics dashboard — route types, top airports & airlines, country corridors, fleet mix, and geographic insights from OpenFlights data.",
+    "status": "live",
+    "liveUrl": "https://gvarun20.github.io/openflights-pipeline/",
+    "githubUrl": "https://github.com/gvarun20/openflights-pipeline",
+    "stack": ["Python", "SQL", "ETL", "Data Viz"],
+    "updated": "2026"
+  }
+]
